@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product_detail</title>
+    <link href="/css/product_detail.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <div id="header"></div>
+    </div>
+
+    <div id="product_detail">
+
+        <div class="product_detail_container">
+            <h1 class="product_detail_head_title">ECO-BOT 500</h1>
+            <div class="product_detail_img">
+                <div class="product_detail_img_main">
+                    <img class="product_img_main" src="/public/images/ecobot/11.jpg">
+                </div>
+                <div class="product_detail_img_sub">
+                    <img class="product_detail_img_sub_box" src="/public/images/ecobot/11.jpg"
+                        onclick="imgChange('/public/images/ecobot/11.jpg')">
+                    <img class="product_detail_img_sub_box" src="/public/images/ecobot/12.jpg"
+                        onclick="imgChange('/public/images/ecobot/12.jpg')">
+                    <img class="product_detail_img_sub_box" src="/public/images/ecobot/13.jpg"
+                        onclick="imgChange('/public/images/ecobot/13.jpg')">
+                    <img class="product_detail_img_sub_box" src="/public/images/ecobot/14.jpg"
+                        onclick="imgChange('/public/images/ecobot/14.jpg')">
+                </div>
+            </div>
+        </div>
+
+        <div class="product_detail_container">
+            <h1>How it works</h1>
+            <img class="product_detail_work_img" src="/public/images/eco-bot-500-preview.jpg">
+        </div>
+
+        <div class="product_detail_container">
+            <h1>3D Modeling</h1>
+            <img class="product_detail_work_img" src="/public/images/addition/eco-bot-500-modeling.jpg">
+        </div>
+
+        <div class="product_detail_container">
+            <h1>Installation</h1>
+            <div class="product_detail_container4_content">
+
+                <div class="product_detail_container4_content_container">
+
+                    <div class="product_detail_container4_content_box">
+                        <img id="product_detail_install_img_daejeon" class="product_detail_install_img"
+                            src="/public/assets/uploads/KakaoTalk_20220719_153610090_023.jpg"
+                            onmouseover="onHover_daejeon()" style="display: none">
+                        <div id="eco_bot_500_daejeon" onmouseout="offHover_daejeon()"
+                            style="width: 20rem; height: 15rem;">
+                        </div>
+                        <h3>대전광역시 갑천 수상스포츠체험장</h3>
+                        <p>시공일 : 2022.06.12</p>
+                    </div>
+
+                    <div class="product_detail_container4_content_box">
+                        <img id="product_detail_install_img_incheon" class="product_detail_install_img"
+                            src="/public/assets/uploads/KakaoTalk_20220830_161812544.jpg"
+                            onmouseover="onHover_incheon()" style="display: none">
+                        <div id="eco_bot_500_incheon" onmouseout="offHover_incheon()"
+                            style="width: 20rem; height: 15rem;">
+                        </div>
+                        <h3>인천광역시 환경산업연구단지</h3>
+                        <p>시공일 : 2021.10.22</p>
+                    </div>
+
+                    <div class="product_detail_container4_content_box">
+                        <img id="product_detail_install_img_jangseong" class="product_detail_install_img"
+                            src="/public/assets/uploads/KakaoTalk_20220830_161742049_01.jpg"
+                            onmouseover="onHover_jangseong()" style="display: none">
+                        <div id="eco_bot_500_jangseong" onmouseout="offHover_jangseong()"
+                            style="width: 20rem; height: 15rem;"></div>
+                        <h3>전라남도 장성 평림댐</h3>
+                        <p>시공일 : 2021.09.27</p>
+                    </div>
+
+                </div>
+
+                <div class="product_detail_container4_content_container">
+
+                    <div class="product_detail_container4_content_box">
+                        <img id="product_detail_install_img_pungam" class="product_detail_install_img"
+                            src="/public/images/ecobot/11.jpg" onmouseover="onHover_pungam()" style="display: none">
+                        <div id="eco_bot_500_pungam" onmouseout="offHover_pungam()"
+                            style="width: 20rem; height: 15rem;">
+                        </div>
+                        <h3>광주광역시 풍암저수지</h3>
+                        <p>시공일 : 2021.09.01</p>
+                    </div>
+
+                    <div class="product_detail_container4_content_box">
+                        <img id="product_detail_install_img_hampyeong" class="product_detail_install_img"
+                            src="/public/images/ecobot/7.jpg" onmouseover="onHover_hampyeong()" style="display: none">
+                        <div id="eco_bot_500_hampyeong" onmouseout="offHover_hampyeong()"
+                            style="width: 20rem; height: 15rem;"></div>
+                        <h3>전라남도 함평 대동저수지</h3>
+                        <p>시공일 : 2021.08.12</p>
+                    </div>
+
+                    <div class="product_detail_container4_content_box">
+                        <img id="product_detail_install_img_okcheon" class="product_detail_install_img"
+                            src="/public/assets/uploads/Okcheon_ecobot.jpg" onmouseover="onHover_okcheon()"
+                            style="display: none">
+                        <div id="eco_bot_500_okcheon" onmouseout="offHover_okcheon()"
+                            style="width: 20rem; height: 15rem;">
+                        </div>
+                        <h3>충청북도 옥천군 서화천</h3>
+                        <p>시공일 : 2021.06.10</p>
+                    </div>
+
+                </div>
+
+                <div class="product_detail_container4_content_container">
+                    <div class="product_detail_container4_content_box">
+                        <img id="product_detail_install_img_suwon" class="product_detail_install_img"
+                            src="/public/assets/uploads/KakaoTalk_20220323_172447087.jpg" onmouseover="onHover_suwon()"
+                            style="display: none">
+                        <div id="eco_bot_500_suwon" onmouseout="offHover_suwon()" style="width: 20rem; height: 15rem;">
+                        </div>
+                        <h3>경기도 수원 광교저수지</h3>
+                        <p>시공일 : 2021.05.25</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#header").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
+
+        });
+
+        <!-- 클릭 시 이미지 바꾸기 -->
+        function imgChange(image_src) {
+            console.log(image_src);
+            $('.product_img_main').attr("src", image_src);
+        }
+    </script>
+
+    <!-- 카카오 지도 ａｐｉ -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f36c3b857e61662be82585dc7e41d3fb"></script>
+
+    <!-- 대전 -->
+    <script>
+        var container = document.getElementById('eco_bot_500_daejeon')
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(36.371878, 127.392792), //지도의 중심좌표.
+            level: 6 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴\
+
+        var markerPosition = new kakao.maps.LatLng(36.371878, 127.392792);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map);
+
+        function onHover_daejeon() {
+            document.getElementById('product_detail_install_img_daejeon').style.display = 'none';
+            document.getElementById('eco_bot_500_daejeon').style.display = '';
+        }
+        function offHover_daejeon() {
+            document.getElementById('product_detail_install_img_daejeon').style.display = '';
+            document.getElementById('eco_bot_500_daejeon').style.display = 'none';
+        }
+
+        setTimeout(function () {
+            document.getElementById('product_detail_install_img_daejeon').style.display = '';
+            document.getElementById('eco_bot_500_daejeon').style.display = 'none';
+        }, 100)
+
+
+    </script>
+
+    <!-- 인천 -->
+    <script>
+        var container = document.getElementById('eco_bot_500_incheon')
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(37.571181, 126.645284), //지도의 중심좌표.
+            level: 6 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+        var markerPosition = new kakao.maps.LatLng(37.571181, 126.645284);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map);
+
+        function onHover_incheon() {
+            document.getElementById('product_detail_install_img_incheon').style.display = 'none';
+            document.getElementById('eco_bot_500_incheon').style.display = '';
+        }
+        function offHover_incheon() {
+            document.getElementById('product_detail_install_img_incheon').style.display = '';
+            document.getElementById('eco_bot_500_incheon').style.display = 'none';
+        }
+
+        setTimeout(function () {
+            document.getElementById('product_detail_install_img_incheon').style.display = '';
+            document.getElementById('eco_bot_500_incheon').style.display = 'none';
+        }, 100)
+    </script>
+
+    <!-- 장성 -->
+    <script>
+        var container = document.getElementById('eco_bot_500_jangseong')
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(35.289740, 126.684114), //지도의 중심좌표.
+            level: 6 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+        var markerPosition = new kakao.maps.LatLng(35.289740, 126.684114);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map);
+
+        function onHover_jangseong() {
+            document.getElementById('product_detail_install_img_jangseong').style.display = 'none';
+            document.getElementById('eco_bot_500_jangseong').style.display = '';
+        }
+        function offHover_jangseong() {
+            document.getElementById('product_detail_install_img_jangseong').style.display = '';
+            document.getElementById('eco_bot_500_jangseong').style.display = 'none';
+        }
+
+        setTimeout(function () {
+            document.getElementById('product_detail_install_img_jangseong').style.display = '';
+            document.getElementById('eco_bot_500_jangseong').style.display = 'none';
+        }, 100)
+    </script>
+
+    <!-- 풍암 -->
+    <script>
+        var container = document.getElementById('eco_bot_500_pungam')
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(35.127658, 126.870136), //지도의 중심좌표.
+            level: 6 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+        var markerPosition = new kakao.maps.LatLng(35.127658, 126.870136);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map);
+
+        function onHover_pungam() {
+            document.getElementById('product_detail_install_img_pungam').style.display = 'none';
+            document.getElementById('eco_bot_500_pungam').style.display = '';
+        }
+        function offHover_pungam() {
+            document.getElementById('product_detail_install_img_pungam').style.display = '';
+            document.getElementById('eco_bot_500_pungam').style.display = 'none';
+        }
+
+        setTimeout(function () {
+            document.getElementById('product_detail_install_img_pungam').style.display = '';
+            document.getElementById('eco_bot_500_pungam').style.display = 'none';
+        }, 100)
+
+        map.relayout()
+    </script>
+
+    <!-- 함평 -->
+    <script>
+        var container = document.getElementById('eco_bot_500_hampyeong')
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(35.130742, 126.505822), //지도의 중심좌표.
+            level: 6 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+        var markerPosition = new kakao.maps.LatLng(35.130742, 126.505822);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map);
+
+        function onHover_hampyeong() {
+            document.getElementById('product_detail_install_img_hampyeong').style.display = 'none';
+            document.getElementById('eco_bot_500_hampyeong').style.display = '';
+        }
+        function offHover_hampyeong() {
+            document.getElementById('product_detail_install_img_hampyeong').style.display = '';
+            document.getElementById('eco_bot_500_hampyeong').style.display = 'none';
+        }
+
+        setTimeout(function () {
+            document.getElementById('product_detail_install_img_hampyeong').style.display = '';
+            document.getElementById('eco_bot_500_hampyeong').style.display = 'none';
+        }, 100)
+
+    </script>
+
+    <!-- 옥천 -->
+    <script>
+        var container = document.getElementById('eco_bot_500_okcheon')
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(36.322470, 127.547887), //지도의 중심좌표.
+            level: 6 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+        var markerPosition = new kakao.maps.LatLng(36.322470, 127.547887);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map);
+
+        function onHover_okcheon() {
+            document.getElementById('product_detail_install_img_okcheon').style.display = 'none';
+            document.getElementById('eco_bot_500_okcheon').style.display = '';
+        }
+        function offHover_okcheon() {
+            document.getElementById('product_detail_install_img_okcheon').style.display = '';
+            document.getElementById('eco_bot_500_okcheon').style.display = 'none';
+        }
+
+        setTimeout(function () {
+            document.getElementById('product_detail_install_img_okcheon').style.display = '';
+            document.getElementById('eco_bot_500_okcheon').style.display = 'none';
+        }, 100)
+    </script>
+
+    <!-- 수원 -->
+    <script>
+        var container = document.getElementById('eco_bot_500_suwon')
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(37.306791, 127.028105), //지도의 중심좌표.
+            level: 6 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+        var markerPosition = new kakao.maps.LatLng(37.306791, 127.028105);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map);
+
+        function onHover_suwon() {
+            document.getElementById('product_detail_install_img_suwon').style.display = 'none';
+            document.getElementById('eco_bot_500_suwon').style.display = '';
+        }
+        function offHover_suwon() {
+            document.getElementById('product_detail_install_img_suwon').style.display = '';
+            document.getElementById('eco_bot_500_suwon').style.display = 'none';
+        }
+
+        setTimeout(function () {
+            document.getElementById('product_detail_install_img_suwon').style.display = '';
+            document.getElementById('eco_bot_500_suwon').style.display = 'none';
+        }, 100)
+    </script>
+
+</body>
+
+</html>

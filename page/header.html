@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link href="/css/header.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header_top" id="header_body" onmouseover="header_hover()" onmouseleave="header_hover_off()">
+
+        <div>
+            <a href="http://127.0.0.1:5500/page/main.html"><img class="header_logo"
+                    src="/public/images/ecopeace_logo.png"></a>
+        </div>
+
+        <div id="header_menu_id" class="header_menu">
+            <ul class="header_menu_list">
+                <li id="menu_1" class="header_menu_list_item" onmouseover="menu_hover(event)"
+                    onmouseleave="menu_hover_off()">
+                    <a href="http://127.0.0.1:5500/page/company.html">Company</a>
+                </li>
+                <li id="menu_2" class="header_menu_list_item" onmouseover="menu_hover(event)"
+                    onmouseleave="menu_hover_off()">
+                    <a href="http://127.0.0.1:5500/page/history.html">History</a>
+                </li>
+                <li id="menu_3" class="header_menu_list_item" onmouseover="menu_hover(event)"
+                    onmouseleave="menu_hover_off()">
+                    <a href="http://127.0.0.1:5500/page/product.html">Product</a>
+                </li>
+                <li id="menu_4" class="header_menu_list_item" onmouseover="menu_hover(event)"
+                    onmouseleave="menu_hover_off()">
+                    <a href="http://127.0.0.1:5500/page/article_media.html">Article & Media</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="header_language" onclick="language_dropdown()">
+            <img class="header_language_icon" src="/public/images/addition/icon-globe.png">
+            <p>Language</p>
+            <img class="header_language_icon" src="/public/images/addition/icon-dropdown.png" style="height:0.4rem">
+            <div id="language_drop" class="language_drop_off">
+                <p>한국어</p>
+                <p>English</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="header_dropdown_id" class="header_menu_hover" onmouseover="header_hover()"
+        onmouseleave="header_hover_off()">
+        <ul class="header_dropdown_list">
+            <li id="menu_1" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
+                onmouseleave="menu_hover_off()">
+                <a href="">Company</a>
+                <a href="">Company</a>
+                <a href="">Company</a>
+            </li>
+            <li id="menu_2" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
+                onmouseleave="menu_hover_off()">
+                <a href="">History</a>
+            </li>
+            <li id="menu_3" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
+                onmouseleave="menu_hover_off()">
+                <a href="http://127.0.0.1:5500/page/product_detail_eco_station.html">ECO-STATION</a>
+                <a href="http://127.0.0.1:5500/page/product_detail_eco_bot_500.html">ECO-BOT 500</a>
+                <a href="http://127.0.0.1:5500/page/product_detail_eco_wing.html">ECO-WING</a>
+                <a href="http://127.0.0.1:5500/page/product_detail_eco_bee_500.html">ECO-BEE 500</a>
+                <a href="http://127.0.0.1:5500/page/product_detail_eco_bee_100.html">ECO-BEE 100</a>
+            </li>
+            <li id="menu_4" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
+                onmouseleave="menu_hover_off()">
+                <a href="">Article & Media</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+
+        function header_hover() {
+            $('#header_dropdown_id').css("display", "block")
+
+            $('#header_body').removeClass();
+            $('#header_body').addClass('header_top_hover');
+
+            $('#header_menu_id').removeClass();
+            $('#header_menu_id').addClass('header_menu_hover');
+
+        }
+
+        function header_hover_off() {
+
+            $('#header_body').removeClass();
+            if (window.scrollY == 0) {
+                $('#header_body').addClass('header_top');
+            } else {
+                $('#header_body').addClass('header_move');
+            }
+
+            $('#header_menu_id').removeClass();
+            $('#header_menu_id').addClass('header_menu');
+
+            $('#header_dropdown_id').css("display", "none")
+
+            $('#language_drop').css('display', 'none')
+        }
+
+        function menu_hover(e) {
+            var menu_id = e.target.id;
+            // console.log(menu_id);
+            $('#' + menu_id).css('border-bottom', '1px solid red')
+        }
+
+        function menu_hover_off() {
+            $('.header_menu_list_item').css('border-bottom', '3px solid transparent')
+        }
+
+        window.addEventListener('scroll', function () {
+
+            // 맨 위 스크롤 시 hover
+            if (window.scrollY == 0) {
+                $('#header_body').removeClass();
+                $('#header_body').addClass('header_top');
+            } else {
+                $('#header_body').removeClass();
+                $('#header_body').addClass('header_move');
+            }
+        })
+
+    </script>
+
+    <!-- dropdown -->
+    <script>
+        function language_dropdown() {
+            var dropdown_state = document.getElementById("language_drop");
+            if (dropdown_state.style.display === 'none') {
+                dropdown_state.style.display = 'block';
+            } else {
+                dropdown_state.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

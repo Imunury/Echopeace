@@ -1,0 +1,710 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+
+<head>
+	<%- include('header.ejs') %>
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse">
+
+	<!-- Start on Preloader -->
+	<div id="loading">
+		<div id="loading-center">
+			<div id="loading-center-absolute">
+				<div class="object" id="object_one"></div>
+				<div class="object" id="object_two"></div>
+				<div class="object" id="object_three"></div>
+				<div class="object" id="object_four"></div>
+			</div>
+		</div>
+	</div>
+	<!--End off Preloader -->
+
+	<div class="culmn">
+		<!-- nav. section -->
+		<%- include('navigation.ejs') %>
+
+			<!-- home section -->
+			<section id="section_Home">
+				<video preload="auto" playsinline webkit-playsinline x5-playsinline loop muted preload autoplay
+					class="intro_video">
+					<source src="videos/eco_intro02.mp4" type="video/mp4">
+					<strong>현재 브라우저에서는 동영상을 실행할 수 없습니다.</strong>
+				</video>
+				<video preload="auto" playsinline webkit-playsinline x5-playsinline loop muted preload autoplay
+					class="intro_mobile_video none">
+					<source src="/videos/eco_intro_mobile_02.mp4" type="video/mp4">
+					<strong>현재 브라우저에서는 동영상을 실행할 수 없습니다.</strong>
+				</video>
+				<div class="container" style="position: relative; bottom: 850px; margin-bottom: -850px;">
+					<div class="row">
+						<div class="main_home">
+							<div class="home_text">
+								<h1 class="text-white mobile_intro_txt">A Company Specializing<br>
+									in Water Purification</h1>
+								<p class="THEGOTHICM text-white mobile_intro_txt_sub" style="font-size: 20px;">
+									ECOPEACE는 친환경 수질 정화를 위해 노력하고 있습니다.
+								</p>
+							</div>
+
+							<div class="home_btns m-top-50">
+								<a href="/video" class="video-link btn btn_play" style="font-size: 20px;">
+									▶
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- about section -->
+			<section id="section_About" class="about roomy-100 background_left mobile_section">
+				<div class="container">
+					<div class="about_content">
+						<div class="section_stripe_left_top">
+						</div>
+						<h1 class="title roomy-20"><strong>ABOUT</strong></h1>
+						<h1 class="THEROUND mobile_title">
+							데이터 분석을 통한 에너지 융복합 수질 정화 솔루션
+						</h1>
+						<p class="sub_title">
+							에코피스는 첨단 기술을 사용하여 수질오염의 처리용량을 극대화하고, 담수 시설의 수질 오염문제를 원격 관리하기
+							위한 인공지능 수질정화 통합 플랫폼을 제공합니다.
+						</p>
+						<a href="/_company" class="btn btn_href" style="font-size: 20px;">
+							자세히 보기
+						</a>
+						<div class="section_stripe_left_bottom"></div>
+					</div>
+					<div class="row roomy-100 mobile_section">
+						<div class="about_bottom_content THEROUND">
+							<div class="col-md-4 mobile_about_col" style="border-right: 1px solid black;">
+								<div class="about_bottom_item m-top-10">
+									<div class="ab_head">
+										<h3 class="mobile_about_title">
+											<b>ECOPEACE Mission</b>
+										</h3>
+										<p class="about_sub mobile_about_sub">
+											물, 사람, 지구를 위한 환경 경영
+										</p>
+										<div class="about_text_area mobile_about_text_area">
+											<p class="mobile_about_text">Business for water
+												Benefiting people,<br>
+												and the planet</p>
+											<p>
+												지구촌 담수 시설의 물이 깨끗해지도록 도움으로써 사람과 지구의 지속가능성에 기여하고자 합니다.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4 mobile_about_col" style="border-right: 1px solid black;">
+								<hr class="none mobile_on">
+								<div class="about_bottom_item m-top-10">
+									<div class="ab_head">
+										<h3 class="mobile_about_title">
+											<b>ECOPEACE Vision</b>
+										</h3>
+										<p class="about_sub mobile_about_sub">
+											SMART 수질 관리 분야 No.1 기업
+										</p>
+										<div class="about_text_area mobile_about_text_area">
+											<p class="mobile_about_text">에코피스 SMART 원칙</p>
+											<p class="m-top-35">
+												① Specific ② Measurable ③ Attainable <br>
+												④ Result-oriented ⑤ Time bound
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 mobile_about_col">
+								<hr class="none mobile_on">
+								<div class="about_bottom_item m-top-10">
+									<div class="ab_head">
+										<h3 class="mobile_about_title">
+											<b>ECOPEACE Strategy</b>
+										</h3>
+										<p class="about_sub mobile_about_sub">
+											에코피스의 3가지 약속
+										</p>
+										<div class="row m-top-10 about_text_area mobile_about_text_area">
+											<div class="col-md-4 mobile_about_col_auto_width">
+												<p>
+													Sustainable<br>
+													지속가능한
+												</p>
+												<p>
+													Innovation<br>
+													혁신
+												</p>
+												<p>
+													Development<br>
+													솔루션 개발
+												</p>
+											</div>
+											<div class="col">
+												<p>
+													안정적인 수질 관리를 통해<br>
+													지속가능한 사회를 건설합니다.
+												</p>
+												<p>
+													수질환경, 에너지 융복합 혁신을<br>
+													통해 환경 회복에 기여합니다.
+												</p>
+												<p>
+													데이터 분석 토탈 수질관리<br>
+													솔루션 개발을 통해 수질문제를<br>
+													해결합니다.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- featured section -->
+			<section id="section_Feature" class="blog background_right m-bottom-100">
+				<div class="container">
+					<div class="section_stripe_right_top mobile_none"></div>
+					<div class="text-right">
+						<h2 class="title roomy-20"><strong>Why ECOPEACE?</strong>
+						</h2>
+						<p class="sub_title">
+							에코피스의 AI 기술을 활용한 수질정화 솔루션을 제공하여 효율적인 수질관리를 가능케 합니다.
+						</p>
+					</div>
+					<div class="row m-top-50">
+						<div class="main_blog text-center">
+							<div class="row">
+
+								<div class="col-md-4">
+									<div class="blog_item m-top-20">
+										<img src="/images/ecopeace_featured_01.png" class="feature_img" />
+										<div class="roomy-40 THEROUND">
+											<h4 class="THEROUND">4차 산업 활용 수질 정화 기술</h4>
+											<p style="font-size: medium;">데이터 기반 통합형 수질 정화 기업으로<br>
+												AI, BIGDATA, ROBOT 기술 융합을 통해<br>
+												스마트 수자원관리</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="blog_item m-top-20">
+										<img src="/images/ecopeace_featured_02.png" class="feature_img" />
+										<div class="roomy-40 THEROUND">
+											<h4 class="THEROUND">경제적인 수질 관리 기술</h4>
+											<p style="font-size: medium;">기존 수질 정화 및 관리 기술 대비<br>
+												효율성 <img class="featured_updown" src="/images/featured_up.png">
+												유지비용 <img class="featured_updown" src="/images/featured_down.png">
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="blog_item m-top-20">
+										<img src="/images/ecopeace_featured_03.png" class="feature_img" />
+										<div class="roomy-40 THEROUND">
+											<h4 class="THEROUND">친환경 녹조 제거 기능 보유</h4>
+											<p style="font-size: medium;">생물학적 처리기술과 물리적필터링 기술을 융합한<br>
+												친환경적인 녹조 제거 기능, 친환경적인 설계를 통해<br>
+												자연환경 미관훼손 최소화</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="section_stripe_right_bottom mobile_none"></div>
+				</div>
+			</section>
+
+			<!-- business section-->
+			<section id="section_Business" class="bg-light">
+				<div class="container roomy-50">
+					<div class="section-title" style="display: inline-block; width: 25%;">
+						<h1 class="title roomy-20"><strong>BUSINESS</strong></h1>
+					</div>
+					<hr width="70%" style="display: inline-block; border: 1px solid #A6A6A6" class="mobile_none">
+					<div class="section_subtitle txt-black-font-27 mobile_section_subtitle">
+						<p class="sub_title">
+							<b>에코피스</b>는 다양한 경험과 AI 기술을 기반으로 최적화된 고객 비즈니스를 실현합니다.
+						</p>
+					</div>
+
+					<!-- pc -->
+					<div class="row m-top-30 m-bottom-20 mobile_none">
+						<div class="col content_business" id="content_01">
+							<img src="/images/business_01.png" class="b_img">
+							<p class="b-title" style="color: white;">
+								수질관리 사업부
+							</p>
+							<p class="b-txt none"><br>
+								전문 인력 및 장비 투입을 통해 수질의 모든 부분을 관리합니다.
+							</p>
+						</div>
+						<div class="col content_business" id="content_02">
+							<img src="/images/business_02.png" class="b_img">
+							<p class="b-title" style="color: white;">
+								녹조제거 사업부
+							</p>
+							<p class="b-txt none"><br>
+								직접 개발한 녹조제거선을 투입하여 녹조 번식을 막고, 제거함으로써 쾌적한 담수 시설 상태를 유지합니다.
+							</p>
+						</div>
+						<div class="col content_business_double" id="content_03">
+							<img src="/images/business_03.png" class="b_img">
+							<p class="b-title" style="color: white;">
+								환경 정화 장비<br> 연구 개발부
+							</p>
+							<p class="b-txt none">
+								환경 오염에 대응하여 지속적인 연구 개발을 통해 환경 문제를 해결할 수 있는 기술을 개발합니다.
+							</p>
+						</div>
+						<div class="col content_business_double" id="content_04">
+							<img src="/images/business_04.png" class="b_img">
+							<p class="b-title" style="color: white;">
+								수질정화장치 <br>설치 및 컨설팅
+							</p>
+							<p class="b-txt none">
+								국내.외 수요처를 찾아 설치하며 수질 오염으로 막대한 피해를 받고 있는 곳을 찾아 정화 솔루션을 제공합니다.
+							</p>
+						</div>
+					</div>
+
+					<!-- mobile -->
+					<div class="m-top-30 m-bottom-20 none mobile_on">
+						<div class="content_business" id="content_01">
+							<i class="uis uis-angle-double-right text-light business_arrows"
+								style="font-size: 50px; position: absolute; left: 88%"></i>
+							<p class="b-title">
+								01<br>
+								수질관리 사업부
+								<hr class="b-hr" color="white">
+							</p>
+							<p class="b-txt none">
+								전문 인력 및 장비 투입을 통해 수질의 모든 부분을 관리합니다.
+							</p>
+						</div>
+						<div class="content_business" id="content_02">
+							<i class="uis uis-angle-double-right text-light business_arrows"
+								style="font-size: 50px; position: absolute; left: 88%"></i>
+							<p class="b-title">
+								02<br>
+								녹조제거 사업부
+								<hr class="b-hr" color="white">
+							</p>
+							<p class="b-txt none">
+								직접 개발한 녹조제거선을 투입하여 녹조 번식을 막고, 제거함으로써 쾌적한 담수 시설 상태를 유지합니다.
+							</p>
+						</div>
+						<div class="content_business" id="content_03">
+							<i class="uis uis-angle-double-right text-light business_arrows"
+								style="font-size: 50px; position: absolute; left: 88%"></i>
+							<p class="b-title">
+								03<br>
+								환경 정화 장비 연구 개발부
+								<hr class="b-hr" color="white">
+							</p>
+							<p class="b-txt none">
+								환경 오염에 대응하여 지속적인 연구 개발을 통해 환경 문제를 해결할 수 있는 기술을 개발합니다.
+							</p>
+						</div>
+						<div class="content_business" id="content_04">
+							<i class="uis uis-angle-double-right text-light business_arrows"
+								style="font-size: 50px; position: absolute; left: 88%"></i>
+							<p class="b-title">
+								04<br>
+								수질정화장치 설치 및 컨설팅
+								<hr class="b-hr" color="white">
+							</p>
+							<p class="b-txt none">
+								국내.외 수요처를 찾아 설치하며 수질 오염으로 막대한 피해를 받고 있는 곳을 찾아 정화 솔루션을 제공합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- products section -->
+			<section id="section_Products" class="product_section">
+				<div class="product_section_div">
+					<div class="product_slide m-bottom-60">
+						<div>
+							<div class="container m-bottom-20">
+								<div class="row gx-4 gx-lg-2">
+									<div class="col-md-6">
+										<div class="product_img">
+											<img src="../images/ecoproduct/eco_bee_100.png"
+												style="object-fit: cover;" />
+										</div>
+									</div>
+									<div class="col-md-6 THEGOTHICL text-black">
+										<div class="product_about">
+											<p class="product_p1 THEROUND">PRODUCTS</p>
+											<p class="product_p2"><b>부유식</b> 수질 정화 장치</p>
+											<p class="THEGOTHICM product_p3 roomy-50">
+												<b>ECO-BEE 100</b>
+											</p>
+											<p class="product_p4"><b>담수지역에서의 효과적인 수질 정화가 가능합니다.</b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="container m-bottom-20">
+								<div class="row gx-4 gx-lg-2">
+									<div class="col-md-6">
+										<div class="product_img">
+											<img src="../images/ecoproduct/eco_bee_500.png"
+												style="object-fit: cover; padding-top: 50px;" />
+										</div>
+									</div>
+									<div class="col-md-6 THEGOTHICL text-black">
+										<div class="product_about">
+											<p class="product_p1 THEROUND">PRODUCTS</p>
+											<p class="product_p2"><b>모듈형</b> 수질 정화 장치</p>
+											<p class="THEGOTHICM product_p3 roomy-50">
+												<b>ECO-BEE 500</b>
+											</p>
+											<p class="product_p4"><b>다방면으로 활용 가능한 수질정화 장치입니다.</b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="container m-bottom-20">
+								<div class="row gx-4 gx-lg-2">
+									<div class="col-md-6">
+										<div class="product_img">
+											<img src="../images/ecoproduct/eco_bot_500.png"
+												style="object-fit: cover;" />
+										</div>
+									</div>
+									<div class="col-md-6 THEGOTHICL text-black">
+										<div class="product_about">
+											<p class="product_p1 THEROUND">PRODUCTS</p>
+											<p class="product_p2"><b>AI 기반</b> 수질 정화 로봇</p>
+											<p class="THEGOTHICM product_p3 roomy-50">
+												<b>ECO-BOT 500</b>
+											</p>
+											<p class="product_p4"><b>자율 주행이 가능한 수질정화 로봇입니다.</b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="container m-bottom-20">
+								<div class="row gx-4 gx-lg-2">
+									<div class="col-md-6">
+										<div class="product_img_wing">
+											<img src="../images/ecoproduct/eco_wing.png" class="eco_wing"/>
+										</div>
+									</div>
+									<div class="col-md-6 THEGOTHICL text-black">
+										<div class="product_about">
+											<p class="product_p1 THEROUND">PRODUCTS</p>
+											<p class="product_p2">고정식 <b>담수 순환장치</b></p>
+											<p class="THEGOTHICM product_p3 roomy-50">
+												<b>ECO-WING</b>
+											</p>
+											<p class="product_p4"><b>담수지역에서의 부영양화 요소를 상승시킵니다.</b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="container m-bottom-20">
+								<div class="row gx-4 gx-lg-2">
+									<div class="col-md-6">
+										<div class="product_img">
+											<img src="../images/ecoproduct/eco_station.png"
+												style="object-fit: cover;" />
+										</div>
+									</div>
+									<div class="col-md-6 THEGOTHICL text-black">
+										<div class="product_about">
+											<p class="product_p1 THEROUND">PRODUCTS</p>
+											<p class="product_p2">에코시스템 <b>통합 관리 플랫폼</b></p>
+											<p class="THEGOTHICM product_p3 roomy-50">
+												<b>ECO-STATION</b>
+											</p>
+											<p class="product_p4"><b>태양력 발전이 가능한 대형 플랫폼 입니다.</b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="text-center THEGOTHICM product_nav product_nav_active" style="" id="ecobee100">
+							<a class="m-bottom-40" style="cursor: pointer">ECO-BEE 100</a>
+						</div>
+						<div class="text-center THEGOTHICM product_nav" id="ecobee500">
+							<a class="m-bottom-40" style="cursor: pointer">ECO-BEE 500</a>
+						</div>
+						<div class="text-center THEGOTHICM product_nav" id="ecobot500">
+							<a class="m-bottom-40" style="cursor: pointer">ECO-BOT 500</a>
+						</div>
+						<div class="text-center THEGOTHICM product_nav" id="ecowing">
+							<a class="m-bottom-40" style="cursor: pointer">ECO-WING</a>
+						</div>
+						<div class="text-center THEGOTHICM product_nav" id="ecostation">
+							<a class="m-bottom-40" style="cursor: pointer">ECO-STATION</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- article section -->
+			<section id="section_Article" class="about roomy-50">
+				<div class="container">
+					<div class="section-title" style="display: inline-block; width: 20%; margin-right: 10px;">
+						<h1 class="title roomy-20"><strong>NEWS</strong></h1>
+					</div>
+					<hr width="75%" style="display: inline-block; border: 1px solid #A6A6A6" class="mobile_none">
+				</div>
+				<div class="Article_slide">
+					<div>
+						<div class="container m-bottom-20">
+							<div class="row gx-4 gx-lg-2 align-items-center">
+
+								<div class="col-md-6">
+									<img class="card-img article_img" src="../images/article/article01.png" />
+								</div>
+
+								<div class="col-md-6 THEROUND">
+									<div class="mobile_article_title_section">
+										<p>2022.03.29</p>
+										<p class="THEGOTHICM mobile_article_title"
+											style="font-size: xx-large; color: black; line-height: 1.2;">
+											‘시각장애인의 눈’
+											AI부터 ‘수질정화’ 로봇까지, ESG 400억 원 공동 펀드 조성</p>
+									</div>
+									<div class="article_content">
+										<p>
+											* KBS 뉴스 입니다. *
+										</p>
+									</div>
+									<a href="https://news.kbs.co.kr/news/view.do?ncd=5426738&ref=A" class="btn btn_href"
+										style="font-size: 18px;">
+										기사 원문보기
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="container">
+							<div class="row gx-4 gx-lg-2 align-items-center">
+
+								<div class="col-md-6">
+									<img class="card-img article_img"
+										src="http://www.thedrive.co.kr/news/data/20220315/p1065571854003544_584_thum.jpg" />
+								</div>
+
+								<div class="col-md-6 THEROUND">
+									<div class="mobile_article_title_section">
+										<p>2022.03.15</p>
+										<p class="THEGOTHICM mobile_article_title"
+											style="font-size: xx-large; color: black; line-height: 1.2;">
+											스프링클라우드,
+											해양드론기술 · 에코피스와 MOU 체결</p>
+									</div>
+									<div class="article_content">
+										<span>
+											스프링클라우드, 해양드론기술, 에코피스가 해양쓰레기 수거 모빌리티 산업 솔루션 구축을 위한 양해 각서(MOU)를 체결했다.<br>
+											스프링클라우드에 따르면 업무 협약 체결을 시작으로 앞으로 태양광을 이용한 친환경 에너지가 적용된 인공지능 수질 정화 로봇 개발에 박차를
+											가할
+											것으로 예상된다.
+										</span>
+									</div>
+									<a href="http://www.thedrive.co.kr/news/newsview.php?ncode=1065571854003544"
+										class="btn btn_href" style="font-size: 18px;">
+										기사 원문보기
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="container">
+							<div class="row gx-4 gx-lg-2 align-items-center">
+
+								<div class="col-md-6">
+									<img class="card-img article_img"
+										src="http://image2.aving.net/2021/11/15/202111151502585745.jpg" />
+								</div>
+
+								<div class="col-md-6 THEROUND">
+									<div class="mobile_article_title_section">
+										<p>2021.11.12</p>
+										<p class="THEGOTHICM mobile_article_title"
+											style="font-size: xx-large; color: black; line-height: 1.2;">
+											에코피스, ITS
+											2021서 탄소중립 실천하는 'AI 수질 정화 통합 플랫폼' 소개!</p>
+									</div>
+									<div class="article_content">
+										<span>
+											에코피스(대표 채인원)는 지난 10월 26일(화)부터 28일(목)까지 세텍(SETEC, 서울무역전시장)에서 개최된 '제22회
+											중소기업기술혁신대전(ITS 2021)'에 참가해 'AI 수질 정화 통합
+											플랫폼'을 소개했다.
+											에코피스는 친환경 에너지·에너지 효율 기술 개발과 지속적인 기술 혁신, 기술 융합, 첨단 전문성 개발을 통해 '탄소 중립'과 '에너지
+											전환'
+											시대를 준비하고 있다.
+										</span>
+									</div>
+									<a href="http://kr.aving.net/news/view.php?articleId=1653722&Branch_ID=kr&rssid=naver&mn_name=news"
+										class="btn btn_href" style="font-size: 18px;">
+										기사 원문보기
+									</a>
+									<a href="/_article" class="btn btn_href" style="font-size: 18px;">
+										더보기
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="text-right text-black">
+						<a class="article_arrows Prev_article"><i class="uil uil-arrow-circle-left"></i></a>
+						<a class="article_arrows Next_article"><i class="uil uil-arrow-circle-right"></i></a>
+					</div>
+				</div>
+			</section>
+
+			<!-- youtube section -->
+			<section id="section_Youtube" class="mobile_none roomy-50">
+				<div class="container">
+					<div class="section-title" style="display: inline-block; width: 20%; margin-right: 10px;">
+						<h1 class="title roomy-20"><strong>YOUTUBE</strong></h1>
+					</div>
+					<hr width="75%" style="display: inline-block; border: 1px solid #A6A6A6">
+				</div>
+				<div class="container">
+					<div class="slick_sd">
+						<div class="slick_list" id="slick_youtube_01">
+							<div class="youtube_button"></div>
+							<a href="https://youtu.be/358HK2y5ZOI" style="cursor: pointer;"><img
+									src="../images/youtube_TH01.jpg" class="slick_img"></a>
+							<p class="slick_p"><b>에코피스</b>, 국제 기후 환경 산업전 참가</p>
+						</div>
+						<div class="slick_list" id="slick_youtube_02">
+							<a href="https://youtu.be/358HK2y5ZOI" style="cursor: pointer;"><img
+									src="../images/youtube_TH02.jpg" class="slick_img"></a>
+							<p class="slick_p"><b>에코피스</b>, 인공지능을 활용한 수질 오염 해결?</p>
+						</div>
+						<div class="slick_list" id="slick_youtube_03">
+							<a href="https://youtu.be/UzgrkuWESx4" style="cursor: pointer;"><img
+									src="../images/youtube_TH03.jpg" class="slick_img"
+									style="border: 2px solid whitesmoke;"></a>
+							<p class="slick_p"><b>에코피스,</b> 제 22회 중소기업 기술혁신대전 참가</p>
+						</div>
+						<div class="slick_list" id="slick_youtube_04">
+							<a href="https://youtu.be/b8tI2EXRfqU" style="cursor: pointer;"><img
+									src="../images/youtube_TH04.jpg" class="slick_img"></a>
+							<p class="slick_p"><b>에코피스,</b> 수질의 평화는 ECO-BOT으로 지킨다!</p>
+						</div>
+						<div class="slick_list" id="slick_youtube_05">
+							<a href="https://youtu.be/J2PvllB35Ig" style="cursor: pointer;">
+								<img src="../images/youtube_TH05.jpg" class="slick_img"></a>
+							<p class="slick_p">[KOEF] AI 자율주행 수상로봇, <b>에코피스</b></p>
+						</div>
+					</div>
+					<div class="text-right text-black">
+						<a class="article_arrows Prev_article_sd"><i class="uil uil-arrow-circle-left"></i></a>
+						<a class="article_arrows Next_article_sd"><i class="uil uil-arrow-circle-right"></i></a>
+					</div>
+				</div>
+			</section>
+
+			<!-- contact section -->
+			<section class="bg-light roomy-40 contact_section">
+				<div class="text-center text-light">
+					<div class="container text-center roomy-20">
+						<h1 class="title text-light"><strong>CONTACT</strong></h1>
+					</div>
+					<p class="contact_text m-bottom-20">ECOPEACE에 궁금하신점이 있다면 문의주세요.<br>
+						담당자가 확인 후 신속하게 답변해 드리겠습니다.</p>
+					<a class="btn btn_href" href="/contact" style="font-size: 18px">문의하기</a>
+				</div>
+			</section>
+
+			<!-- scroll up -->
+			<div class="scrollup">
+				<a href="#"><i class="fa fa-chevron-up"></i></a>
+			</div>
+
+			<!-- footer section -->
+			<%- include('footer.ejs') %>
+
+	</div>
+
+	<!-- JS includes -->
+	<script src="/js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="/js/vendor/popper.min.js"></script>
+	<script src="/js/vendor/bootstrap.min.js"></script>
+	<script src="/js/jquery.magnific-popup.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/slick.min.js"></script>
+	<script src="/js/jquery.collapse.js"></script>
+	<script src="/js/bootsnav.js"></script>
+	<script src="/js/plugins.js"></script>
+	<script src="/js/main.js"></script>
+
+	<!-- IE일때 alert -->
+	<script>
+		var agent = navigator.userAgent.toLowerCase();
+		if ((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1)) {
+			alert("현재 웹사이트는 인터넷 익스플로러를 지원하지 않습니다.");
+		}
+	</script>
+
+	<script>
+		$('#ecobee100').click(function () {
+			$('.product_slide').slick('slickGoTo', 0);
+			$('.product_nav').removeClass('product_nav_active');
+			$(this).addClass('product_nav_active');
+		})
+		$('#ecobee500').click(function () {
+			$('.product_slide').slick('slickGoTo', 1);
+			$('.product_nav').removeClass('product_nav_active');
+			$(this).addClass('product_nav_active');
+		})
+		$('#ecobot500').click(function () {
+			$('.product_slide').slick('slickGoTo', 2);
+			$('.product_nav').removeClass('product_nav_active');
+			$(this).addClass('product_nav_active');;
+		})
+		$('#ecowing').click(function () {
+			$('.product_slide').slick('slickGoTo', 3);
+			$('.product_nav').removeClass('product_nav_active');
+			$(this).addClass('product_nav_active')
+		})
+		$('#ecostation').click(function () {
+			$('.product_slide').slick('slickGoTo', 4);
+			$('.product_nav').removeClass('product_nav_active');
+			$(this).addClass('product_nav_active');
+		})
+	</script>
+
+</body>
+
+</html>

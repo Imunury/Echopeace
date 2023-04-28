@@ -1,0 +1,3078 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_IOT_POSTGRESQL",
+      "label": "IOT_PostgreSQL",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "postgres",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.2.2"
+    },
+    {
+      "type": "datasource",
+      "id": "postgres",
+      "name": "PostgreSQL",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": "7.1.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1652761098767,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 0
+      },
+      "id": 116,
+      "options": {
+        "content": "<style>\n\t.btn_type {\n    \tdisplay: inline-block;\n        min-width: 90px;\n        height: 32px;\n        border-radius: 3px;\n        border: solid 1px #999999;\n        text-align:center;\n        cursor: pointer;\n        line-height:30px;\n        font-family: NotoSans;\n        font-size: 12px;\n        font-weight: 500;\n        color: #fbfbfb;\n        background-color: transparent;\n        padding:0 20px;\n\t}\n    .btn_type:hover {background-color: rgba(153, 153, 153, 0.2);}\n    .btn_type:disabled {border: solid 1px #363636;color: #545454;cursor:not-allowed;}\n    .btn_type:active {\n    \tborder: solid 1px #2c6ed2;\n        background-color: #2189ff;\n\t}\n\t\n    .btn_type2 {\n        min-width: 90px;\n        height: 32px;\n        margin: 0;\n        padding: 8px 20px 7px 21px;\n        border-radius: 3px;\n        border: solid 1px #2189ff;\n        background-color: #2189ff;\n        padding:0 20px;\n    \tcolor:#fbfbfb;\n\t}\n    .btn_type2:hover {\n        border: solid 1px #7fb7f6;\n        background-color: #7fb7f6;\n    }\n\t.btn_type2:active {\n        border: solid 1px #2157a0;\n        background-color: #2157a0;\n    }\n\t.btn_type2:disabled {background-color: #113257;border: solid 1px #113257;color: #545454;cursor:not-allowed;}\n \t.btn_type2.extend-style-center {padding:10px 20px 30px;margin-left:30px;margin-right:30px;}\n\t.btn_type2.extend-style {padding:10px 20px 30px;}\n\t\n    .input_btn {\n        width: 199px !important;\n        height: 32px !important;\n        border-radius: 3px !important;\n        border: solid 1px #333333 !important;\n        background-color: #3b3c3f !important;\n    }\n    .input_btn:disabled {background-color: #191a1c;color: #545454;cursor:not-allowed;}\n\t.btn-success {\n        height: 32px;\n        margin: 0;\n        padding: 8px 10px 7px 10px;\n        border-radius: 3px;\n        border: solid 1px #2189ff;\n        background-color: #2189ff;\n        padding:0 20px;\n        color:#fbfbfb;\n        background-image:none !important;\n        text-shadow:none !important;\n\t}\n    .btn-success:hover {\n        border: solid 1px #156ed2;\n        background-color: #156ed2;\n    }\n\t.btn-success:active {\n        border: solid 1px #156ed2;\n        background-color: #156ed2;\n\t}\n\t\n\t.camera-control-button {text-align:center;}\n\t.direction_driving {text-align:center;}\n\t.velocity-controller {text-align:center;height:100%;position: relative;}\n\t.auto-drive-button {text-align:center;height:100%;position: relative;}\n\t.auto-drive-button .btn_type2 {margin:0 !important;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -100%);}\n\t.parking-drive-button {text-align:center;height:100%;position: relative;}\n\t.parking-drive-button .btn_type2 {margin:0 !important;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -100%);}\n\t.vertical-cenetr {height:100%;position: relative;}\n\t.vertical-cenetr .vertical-item {position: absolute;top: 50%;left: 50%;width:100%;transform: translate(-50%, -60%);}\n\t\n\t.panel-container {\n        background-color: #252629 !important;\n        border-radius: 2px !important;\n        border:0 !important;\n    }\n\t.panel-header {background-color: #252629 !important;height: 32px !important;}\n\t.react-grid-item {\n    \tbackground-color: #0b0c0e !important;\n    }\n\t.dashboard-row {background-color: #18191b !important;}\n    .dashboard-row__title {\n       font-family: NotoSans !important;\n       font-size: 14px !important;\n       font-weight: 900;\n       font-stretch: normal;\n       font-style: normal;\n       line-height: 1.36;\n       letter-spacing: -0.42px;\n       text-align: left;\n       color: #cccccc;\n    }\n    \n\t.dashboard-row__title .css-1vzus6i-Icon {margin-right: 5px !important;}\n\t.gf-form-label--variable {color: #2189ff !important;}\n\t.panel-title-text {font-size: 13px !important;color: #a5a5a5 !important;}\n\t\n\t.css-58bavm-thead {height:34px !important;background-color: #303134 !important;font-size:14px !important;color:#ffffff !important;}\n\t.css-sq6g4h-row {border-bottom:1px solid #252629 !important;background-color:#141619 !important;}\n\t.css-sq6g4h-row .css-1rdn9yr {border-right: 1px solid #252629 !important;}\n\t.css-7wwngm {color:#ffffff !important;font-size:14px !important;}\n\t.css-k8rj3c {color:#cccccc !important;font-size:14px !important;}\n\t.css-1xvc61p {background-color:#08090b !important;color:#cccccc !important;font-size:14px !important;}\n\t\n\t.css-1fi7rug {background: #67b963 !important;} /* normal */\n\t.css-1v20t3n {background: #999999 !important;} /* no-data */\n\t.css-z3kjb6 {background: #ff7761 !important;} /* error */\n\t.css-1rdn9yr:last-child > div {padding-right:0;}\n\t\n\t/* table2 */\n\ttable#course_table {width:100%;}\n\ttable#course_table th {padding:6px 16px 5px !important; height:34px !important;font-size:14px !important;color: #ffffff !important;background-color: #303134 !important;text-align:center !important;border-right:1px solid rgb(20, 22, 25) !important;}\n\ttable#course_table td {padding:6px 16px 6px !important;background-color:#17191c !important;border:1px solid #252629 !important;}\n\ttable#course_table input[type=\"text\"] {color:#cccccc !important;border-radius: 3px !important; border: solid 1px #333333 !important; background-color: #3b3c3f !important;}\n\ttable#course_table input[type=\"text\"]:read-only {background-color:#2e2f31 !important;}\n\t::-webkit-input-placeholder { color:#777777 !important;/* Edge */}\n\t:-ms-input-placeholder { color:#777777 !important;/* Internet Explorer 10-11 */}\n\t::placeholder {color:#777777 !important;}\n   \n\t.course_update, .drive_config_update, .course_add_button {margin-left:10px;}\n\t#videoC {padding:8px !important;}\n   \n\tselect#courses_select {height:25px !important;font-size: 14px;color:#cccccc !important;border: solid 1px #333333 !important; background-color: #3b3c3f !important;border-radius: 3px !important;}\n    .panel-content {padding:0 !important;}\n    plugin-component {padding:8px !important;}\n   \n    .no-overlay-scrollbar ::-webkit-scrollbar-thumb:vertical {\n        height: 50px;\n        background: #535456 !important;\n        border: 0px solid #000 !important;\n    }\n\t.no-overlay-scrollbar ::-webkit-scrollbar-thumb:horizontal {\n        width: 50px;\n        background: #535456 !important;\n        border: 0px solid #000 !important;\n\t}\n   \n   \t.custom-scrollbar .thumb-horizontal {background: #535456 !important;background-image:none !important;}\n   \n\t/*\n\t.panel-content.panel-content--no-padding {padding:8px !important;box-sizing:border-box !important;}\n\t.panel-container[aria-label*=\"Panel container title 주행정보\"] .panel-content.panel-content--no-padding{padding:0px !important;}\n\t.panel-container[aria-label*=\"Panel container title 현재 주행 속도\"] .panel-content.panel-content--no-padding{padding:0px !important;}\n\t.panel-container[aria-label*=\"Panel header title item 주행 설정 정보\"] .panel-content.panel-content--no-padding{padding:0px !important;}\n\t*/\n      \n\t/* on_off */\n\tinput[type=\"checkbox\"].input__on-off {display: none;}\n   \n   .label__on-off {\n       overflow: hidden;\n       position: relative;\n       display: inline-block;\n       width: 90px;\n       height: 32px;\n       -webkit-border-radius: 20px;\n       -moz-border-radius: 20px;\n       border-radius: 20px;\n       background-color: #303134;\n       color: #fff;\n       font-weight: bold;\n       cursor: pointer;\n       -webkit-transition: all .3s;\n       -moz-transition: all .3s;\n       -ms-transition: all .3s;\n       -o-transition: all .3s;\n       transition: all .3s;\n       line-height:32px;\n   }\n   \n   .label__on-off > * {\n       vertical-align: top;\n       -webkit-transition: all .3s;\n       -moz-transition: all .3s;\n       -ms-transition: all .3s;\n       -o-transition: all .3s;\n       transition: all .3s;\n       font-size: 12px;\n       \n   }\n   \n   .label__on-off .marble {\n       position: absolute;\n       top: 3px;\n       left: 5px;\n       display: block;\n       width: 26px;\n       height: 26px;\n       background-color: #fff;\n       -webkit-border-radius: 50%;\n       -moz-border-radius: 50%;\n       border-radius: 50%;\n       -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3);\n       -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3);\n       box-shadow: 0 0 10px rgba(0, 0, 0, .3);\n   }\n   \n   .label__on-off .on {\n       display: none;\n       padding-left: 26px;\n   }\n   \n   .label__on-off .off {\n       padding-left: 44px;\n       line-height: 32px;\n   }\n   \n   .input__on-off:checked + .label__on-off {\n       background-color: #2189ff;\n   }\n   \n   .input__on-off:checked + .label__on-off .on {\n       display: inline-block;\n   }\n   \n   .input__on-off:checked + .label__on-off .off {\n       display: none;\n   }\n   \n   .input__on-off:checked + .label__on-off .marble {\n      left:calc(100% - 31px);\n   }\n\n   .input__on-off:disabled + .label__on-off {background-color: #113257;color:#545454;cursor:not-allowed;}\n   .input__on-off:disabled + .label__on-off .marble {background-color: #67686a;}\n   \n   .pump_control {margin-top:20px;}\n   .pump_control .pump_row:first-child{margin-top:0;}\n   .pump_row {margin-top:20px;text-align:center;}\n   .pump_item {display:inline-block;padding:0;margin:0;margin-right:40px;}\n   .pump_item dt {float:left;line-height:32px;}\n   .pump_item dd {float:left;padding-left:20px;margin:0;text-align:left;}\n   .pump_null {margin-top:10%; text-align:center;}\n  \n   .drive-end-action-row {margin-top:0px;text-align:center;height: 100%;position: relative;}\n   .drive-end-action-item {display:inline-block;padding:0;margin:0;margin-right:0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -70%);}\n   .drive-end-action-item dt {float:left;line-height:32px;padding-left:15px;}\n   .drive-end-action-item dd {float:left;padding-left:10px;margin:0;text-align:left;line-height:0;}\n       \n   .solar-inverter-action-row {margin-top:0px;text-align:center;height: 100%;position: relative;}\n   .solar-inverter-action-item {display:inline-block;padding:0;margin:0;margin-right:0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -70%);}\n   .solar-inverter-action-item dt {float:left;line-height:32px;padding-left:15px;}\n   .solar-inverter-action-item dd {float:left;padding-left:10px;margin:0;text-align:left;line-height:0;}\n\n</style>\n\n<div class=\"drive-end-action-row\">\n   <dl class=\"drive-end-action-item\">\n      <dt> </dt>\n      <dd>\n         <input type=\"checkbox\" id=\"drive-end-action\" name=\"drive-end-action\" class=\"input__on-off\">\n         <label for=\"drive-end-action\" class=\"label__on-off\">\n            <span class=\"marble\"></span>\n            <span class=\"on\">ON</span>\n            <span class=\"off\">OFF</span>\n         </label>\n      </dd>\n   </dl>\n</div>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js\"></script> \n\n<script>\t\n\tvar geturl = $(location).attr('href');\n\tvar ip = $.getJSON(\"https://api.ipify.org/?format=json\", function(e) {\n    ip = e.ip;\n    });\n    var useragent = navigator.userAgent.toLowerCase();\n\n\t$(function(){\n\n\tvar total_mode = '${driving_mode}';\n\tvar total_modes = total_mode.split('|');\n\n\tvar driving_mode = total_modes[0];\n\tvar enable_mode = total_modes[1];\n\n   \n\n\tif(enable_mode == '1') {\n\t\t$('.input__on-off').attr('disabled', true); \n\t}\n\n\tif (driving_mode=='99'){\n\t\t$('input:checkbox[id=\"drive-end-action\"]').attr(\"checked\", false);\n     \n\t}else {\n\t\t$('input:checkbox[id=\"drive-end-action\"]').attr(\"checked\", true);\n   \n\t}\n\t\n\t$('#drive-end-action').off().on('click', function() {\n\t  var drivingMode = '99';\n\t  if($(this).is(\":checked\")) {\n\t    drivingMode = '98';\n\t  }\n      endDriveCallAjax(drivingMode);\n\t})\n\t\n    });\n\n  function endDriveCallAjax(drivingMode){\n\t\tvar url = '${node_red_1}/driving_control';\n\t\tvar md = new MobileDetect(navigator.userAgent);\n\t\tvar data = new Object();\n        data.token = '${nr_token}';\n\t\tdata.robot_id = '${robot_id}';\n\t\tdata.driving_mode = drivingMode;\n\t\tdata.user_id = '${__user.login}';\n\t\tdata.screen_name = '${__dashboard}';\n\t\tdata.url = geturl;\n\t\tdata.module = 'update_drive_end_mode';\n\t\tdata.ip=ip;\n\t\t if(md.mobile()){\n         data.mobile_yn='Y';\n         data.mobile_name=useragent;\n         }else {\n         data.mobile_yn='N';\n         data.mobile_name= useragent;\n         }\n\t\n\t\t\n\t\t$.ajax({\n\t\t\ttype: \"POST\",\n\t\t\tdataType: 'json', \n\t\t\tdata: data,\n\t\t\turl: url,\n\t\t\tsuccess: function(callback) {\n\t\t\t  console.log('success');\n\t\t\t  console.log(callback);\n\t          if(callback.errorCode == '0001') {\n\t            alert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\n\t            beforeChecked();\n\t          }\n\t\t\t},\n\t\t\terror: function(request, status, error) {\n\t          alert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\n\t\t\t  beforeChecked();\n\t\t\t}\n\t\t});\n\t}\n    \n    function beforeChecked() {\n        if($('input:checkbox[id=\"drive-end-action\"]').is(\":checked\")) {\n\t\t\t$('input:checkbox[id=\"drive-end-action\"]').prop(\"checked\", false);\n\t\t} else {\n\t\t\t$('input:checkbox[id=\"drive-end-action\"]').prop(\"checked\", true);\n\t\t}\n\t}\n</script>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "운행 시작 / 종료",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 0
+      },
+      "id": 147,
+      "options": {
+        "content": "<div class = \"parking-drive-button\">\n<button id = \"parking-drive-action\" class=\"btn_type2\"> 이동 </button>\n</div>\n\n<script>\n$(function(){\n\tvar total_mode = '${driving_mode}';\n\tvar total_modes = total_mode.split('|');\n\n\tvar driving_mode = total_modes[0];\n\tvar enable_mode = total_modes[1];\n\n\tif(enable_mode == '1') {\n\t\t$('.btn_type2').attr('disabled', true); \n\t}\n\n \tif (driving_mode=='99'){\n\t\t$('.btn_type2').attr('disabled', true); \n\t}\n\t\t  \n\t$('#parking-drive-action').off().on('click', function() {\n\t\t\n\t\t   mg_location_callAjax1();\n\t\t\t\n\t\t})\n\t\n\t});\nfunction mg_location_callAjax2() {\n\t alert(\"공사중입니다.\");\n}\n\t\n\tfunction mg_location_callAjax1() {\n\t\t\t\n\t\tvar url = '${node_red_1}/driving_control';\n\t\tvar md = new MobileDetect(navigator.userAgent);\n\t\tvar data = new Object();\n\t\tdata.token = '${nr_token}';\n\t\tdata.robot_id = '${robot_id}';\n\t\tdata.driving_mode = '03';\n\t\tdata.module = 'update_mooring_ground';\n\t\tdata.user_id = '${__user.login}';\n\t\tdata.screen_name = '${__dashboard}';\n  \t\tdata.url = geturl;\n\t\tdata.ip = ip;\n\n\t\tif(md.mobile()){\n         data.mobile_yn='Y';\n         data.mobile_name= useragent;\n         }else {\n         data.mobile_yn='N';\n         data.mobile_name= useragent;\n         }\n\n\t\t$.ajax({\n\t\t\ttype: \"POST\",\n\t\t\tdataType: 'json', \n\t\t\tdata: data,\n\t\t\turl: url,\n\t\t\tsuccess: function(callback) {\n\t\t\tconsole.log('success');\n\t\t\tconsole.log(callback);\n\t\t\t   if(callback.errorCode == '0001') {\n\t            alert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\n\t           }\n\t\t\t},\n\t\t    error: function(request, status, error) {\n\t         alert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\n\t\t\t\tconsole.log('fail');\n\t\t\t}\n\t\t});\n\t};\n\t\n</script>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "계류장 이동",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "decimals": 7,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(77, 141, 213)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 1,
+        "x": 4,
+        "y": 0
+      },
+      "id": 42,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  latitude AS \"위도\",\n  longitude AS \"경도\"\nFROM ts_self_driving\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\nORDER BY \"time\" desc\nlimit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "latitude"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "위도"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "longitude"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "경도"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ts_self_driving",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select '위도', '경도'",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": " ",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "decimals": 7,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(77, 141, 213)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 5,
+        "y": 0
+      },
+      "id": 137,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  latitude AS \"위도\",\n  longitude AS \"경도\"\nFROM ts_self_driving\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\nORDER BY \"time\" desc\nlimit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "latitude"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "위도"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "longitude"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "경도"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ts_self_driving",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "위치",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(100, 53, 201)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 1,
+        "x": 7,
+        "y": 0
+      },
+      "id": 138,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \n\tco.cd_nm_ko AS \"모드\",\n\t--'자동[코스]'  AS \"주행 모드\",\n\tsd.direction_val AS \"방향\"\nfrom ts_self_driving sd\ninner join tb_code co\n\ton sd.driving_mode = co.cd and co.grp_cd = 'G07'\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\nORDER BY sd.\"time\" desc\nlimit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "direction_val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "방향"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "speed"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "속도"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ts_self_driving",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select '모드', '방향'\n",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "   ",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(100, 53, 201)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 0
+      },
+      "id": 44,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \n\tco.cd_nm_ko AS \"주행 모드\",\n\t--'자동[코스]'  AS \"주행 모드\",\n\tsd.direction_val AS \"방향\"\nfrom ts_self_driving sd\ninner join tb_code co\n\ton sd.driving_mode = co.cd and co.grp_cd = 'G07'\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\nORDER BY sd.\"time\" desc\nlimit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "direction_val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "방향"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "speed"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "속도"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ts_self_driving",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "주행",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "decimals": 1,
+          "mappings": [],
+          "max": 18,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "light-green",
+                "value": 10
+              },
+              {
+                "color": "light-blue",
+                "value": 12
+              },
+              {
+                "color": "light-purple",
+                "value": 14
+              },
+              {
+                "color": "dark-red",
+                "value": 16
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 10,
+        "y": 0
+      },
+      "id": 66,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^베터리용량$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "robot_id",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  $__timeGroupAlias(\"time\",$__interval),\n  avg((battery_capacity/8000)*100) AS \"베터리용량\"\nFROM ts_battery\nWHERE\n  $__timeFilter(\"time\") and robot_id = '$robot_id'\nGROUP BY 1, battery_id\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "speed"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "속도"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ts_self_driving",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  $__timeGroupAlias(\"time\",$__interval),\n  last(battery_voltage, \"time\") AS \"베터리용량\"\nFROM ts_battery\nWHERE\n  $__timeFilter(\"time\") and robot_id = '$robot_id'\nGROUP BY 1, battery_id\nORDER BY 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "배터리",
+      "type": "gauge"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "No Data",
+              "to": "",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 0
+      },
+      "id": 151,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\n battery_voltage as \"전압(V)\"\r\n, battery_soc as \"SOC(%)\"\r\nfrom ts_solar_inverter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\norder by \"time\" desc\r\nlimit 1",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "태양광 배터리 충전 정보",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "No Data",
+              "to": "",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 15,
+        "y": 0
+      },
+      "id": 153,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\n avg(battery_voltage) as \"배터리전압(V)\" \r\n, avg(battery_temp) as \"배터리온도(℃)\" \r\n, last(battery_soc, \"time\") as \"배터리충전량(%)\"\r\n, last(case when charging_status = '0' then 'Float charge' when charging_status ='1' then 'boost charge' when charging_status ='2' then 'equalizing charge' end, \"time\") as \"충전상태\" \r\n, last(case when battery_status = 'Normal' then battery_status when battery_status = '' or battery_status is Null then 'Error' end, \"time\") as \"베터리상태\" \r\nfrom ts_solar_inverter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\ngroup by robot_id\r\norder by 1 desc\r\nlimit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_solar_inverter",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\ncscd.cd_nm_ko as \"모듈충전상태\" \r\nfrom ts_solar_inverter si\r\nleft outer join tb_code cscd\r\n\ton si.charging_status = cscd.cd\r\n\tand cscd.grp_cd = 'G14'\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\norder by \"time\" desc\r\nlimit 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "태양광 인버터 정보",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "No Data",
+              "to": "",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "클로로필a"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "남조류(cells/mL)"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "수온(℃)"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 149,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\n temperature as \"수온(℃)\"\r\n, bg as \"남조류(ppb)\"\r\n,chl_a as \"클로로필a(ug/l)\"\r\nfrom ts_water_quality_multi_sensor_meter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\norder by \"time\" desc\r\nlimit 1",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "수질 상태 정보",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "-1",
+              "id": 1,
+              "text": "ERROR",
+              "to": "1",
+              "type": 1,
+              "value": "1"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "text": "NORMAL",
+              "to": "",
+              "type": 1,
+              "value": "0"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "rgb(255, 119, 97)",
+                "value": 1
+              },
+              {
+                "color": "rgb(255, 119, 97)",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 3
+      },
+      "id": 143,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select case when sum(cast(nh.noti_code as integer))>=1 then 1 else 0 end as error_cnt\r\nfrom tb_notification_info ni\r\nleft outer join (\r\n   select \"time\", noti_id, equip_id, noti_code, robot_id\r\n   , row_number() over(partition by noti_id, equip_id order by \"time\" desc) as rn\r\n   from ts_notification_history\r\n   where \"time\" between now() - interval '1 month' and now()\r\n   and robot_id = '${robot_id}'\r\n) nh\r\n   on ni.noti_id = nh.noti_id\r\nwhere nh.rn = 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "로봇 상태",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "noValue": "No data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 4,
+        "y": 3
+      },
+      "id": 118,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^time$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \n\t $__time(sd.\"time\") \nfrom ts_self_driving sd\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\nORDER BY sd.\"time\" desc\nlimit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "마지막 연결 시간",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 14,
+        "x": 10,
+        "y": 4
+      },
+      "id": 164,
+      "options": {
+        "content": "<a class=\"weatherwidget-io\" href=\"https://forecast7.com/en/35d28126d69/suok-ri/\" data-label_1=\"SUOK-RI\" data-label_2=\"WEATHER\" data-theme=\"dark\" >SUOK-RI WEATHER</a>\n<script>\n!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');\n</script>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  \"time\" AS \"time\",\n  rq_chl_a\nFROM ts_decided_water_quality\nWHERE\n  $__timeFilter(\"time\")\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "rq_chl_a"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_decided_water_quality",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "기상 정보",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center",
+            "displayMode": "color-background",
+            "filterable": true
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "ERROR",
+              "to": "",
+              "type": 1,
+              "value": "1"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "text": "NORMAL",
+              "to": "",
+              "type": 1,
+              "value": "0"
+            },
+            {
+              "from": "",
+              "id": 3,
+              "text": "No data",
+              "to": "",
+              "type": 1,
+              "value": "-1"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "rgb(153, 153, 153)",
+                "value": -1
+              },
+              {
+                "color": "rgb(103, 185, 99)",
+                "value": 0
+              },
+              {
+                "color": "rgb(255, 119, 97)",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noti_name"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 10,
+        "x": 0,
+        "y": 5
+      },
+      "id": 154,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select noti_name , cast(coalesce(last(noti_code, time), '-1') as integer) \r\nfrom (\r\n\tselect ni.noti_id, ni.noti_name, nh.equip_id, nh.noti_code, nh.time\r\n\t, row_number() over(partition by ni.noti_id, nh.equip_id order by nh.\"time\" desc) as rn\r\n\tfrom tb_notification_info ni\r\n\tleft outer join (\r\n\t\tselect \"time\", noti_id, equip_id, noti_code\r\n\t\tfrom ts_notification_history\r\n\t\twhere \"time\" between now() - interval '30 day' and now()\r\n\t\tand robot_id = '$robot_id'\r\n\t) nh\r\n\t\ton ni.noti_id = nh.noti_id\r\n) a\r\nwhere rn = 1\r\ngroup by noti_name\r\norder by noti_name\r\n;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select max(\"통신 단절\") as \"통신\"\r\n, max(\"모터 이상\") as \"모터\"\r\n, max(\"베터리 이상\") as \"베터리\"\r\n, max(\"수질 측정기 이상\") as \"수질측정기\"\r\n, max(\"펌프 이상\") as \"펌프 이상\"\r\n, max(\"태양광 인버터 이상\") as \"태양광인버터\"\r\nfrom (\r\n   select case when noti_id = 'noti00001' then status end as \"통신 단절\"\r\n   , case when noti_id = 'noti00003' then status end as \"베터리 이상\"\r\n   , case when noti_id = 'noti00004' then status end as \"펌프 이상\"\r\n   , case when noti_id = 'noti00005' then status end as \"태양광 인버터 이상\"\r\n   , case when noti_id = 'noti00006' then status end as \"모터 이상\"\r\n   , case when noti_id = 'noti00008' then status end as \"수질 측정기 이상\"\r\n   from (\r\n      select ni.noti_id, ni.noti_name as alert_type\r\n      , cast(coalesce(nh.noti_code, '-1') as integer) as status\r\n      from tb_notification_info ni\r\n      left outer join (\r\n         select \"time\", noti_id, noti_code, robot_id\r\n         , row_number() over(partition by noti_id order by \"time\" desc) as rn\r\n         from ts_notification_history\r\n        \t\twhere \"time\" between now() - interval '1 month' and now()\r\n\t\t     and robot_id = '$robot_id'\r\n      ) nh    on ni.noti_id = nh.noti_id\r\n      where nh.rn = 1\r\n   ) a\r\n) b\r\n;\r\n",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 10,
+        "x": 0,
+        "y": 8
+      },
+      "id": 160,
+      "options": {
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <title>간단한 지도 표시하기</title>\n    <script type=\"text/javascript\" src=\"https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=bebzv9cz41\"></script>\n</head>\n<body>\n<div id=\"map\" style=\"width:100%;height:100%;\"></div>\n\n<script>\nvar course_info = '${course_info}';\nvar course_list = ${course_list:json};\n\nvar course_info_list = [];\n\n\n$.each(course_list, function(index, item) {\n\n\tvar course_infos =item.split('|');\n\tvar new_course_info = new Object();\n\t\n\t$.each(course_infos, function(idx, ci) {\n\t\tswitch(idx) {\n\t\tcase 0 :\n\t\t\tnew_course_info.course_name = course_info;\n\t\t\tnew_course_info.seq = ci;\n\t\tcase 1 :\n\t\t\tnew_course_info.latitude = ci;\n\t\tcase 2 : \n\t\t\tnew_course_info.longitude = ci;\n\t\t}\n\t});\n\n\tcourse_info_list.push(new_course_info);\n});\n\nvar i = 0;\nvar map;\n// 광교 17, 인천 19 ,풍암지 17\nvar zoomSize = 16;\n\n// circle 및  ployline overlay들을 담는 array\nvar circles =[];\nvar polylines = [];\n\n// 코스 생성\nfunction setCourseInfoList() {\n\t// course polyline path array\n\tvar polylinePath = [];\n\t\n\t$.each(course_info_list, function(index, item) {\n\t\tvar latitude = item.latitude;\n\t\tvar longitude = item.longitude;\n\t\tvar seq = item.seq;\n\t\tvar course_name = item.course_name;\n\t\t\n\t\tvar coordinate = new naver.maps.LatLng(latitude, longitude);\n\t\tpolylinePath.push(coordinate);\n\t\t\n\t\tvar circle = new naver.maps.Circle({\n\t\t    map: map,\n\t\t    center: coordinate,\n\t\t    radius: 1,\n\t\t    fillColor: '#FF3399',\n\t\t    strokeColor: '#FF3399',\n\t\t    fillOpacity: 0.5\n\t\t});\n\t});\n\n\t// 시작과 끝을 연결 \n//\tpolylinePath.push(polylinePath[0]);\n\n\tvar subPolylinePath = [];\n\tvar startPolylinePath, endPolylinePath;\n\t\n\t$.each(polylinePath, function(index, item) {\n\n\t\tif(index == 0) {\n\t\t\tstartPolylinePath = item;\t\t\n\t\t} else {\n\t\t\tendPolylinePath = item;\n\t\t\tsubPolylinePath.push(startPolylinePath);\n\t\t\tsubPolylinePath.push(endPolylinePath);\n\t\t}\n\t\t\n\t\tif(index != 0) {\n\t\t\tvar polyline = new naver.maps.Polyline({\n\t\t\t    map: map,\n\t\t\t    path: subPolylinePath,\n\t\t\t    endIcon: naver.maps.PointingIcon.OPEN_ARROW,\n\t\t\t\tstrokeStyle: 'shortdash',\n\t\t\t    strokeColor: '#FF3399',\n\t\t\t    strokeWeight:1.5,\n\t\t\t    strokeOpacity: 1\n\t\t\t});\n\t\t}\n\n\t\tstartPolylinePath = item;\t\n\t\tsubPolylinePath = [];\n\t});\n\t\n\n}\n\n// 1. 최초버전 (setTimeout 설정, 지도 그리기, 센터 표시, 데이터가져와서 표시)\nsetTimeout(function() {\n\tvar mapOptions = {\n\t    //center: new naver.maps.LatLng(35.12680, 126.87150),\n\t\tcenter: new naver.maps.LatLng(35.291190877708765, 126.68001824810412),\n\t\tzoom: zoomSize\n\t    , draggable: false,\n        scrollWheel: false,\n        keyboardShortcuts: false,\n        disableDoubleClickZoom: true\n        , pinchZoom: false,\n        disableDoubleTapZoom: true,\n        disableTwoFingerTapZoom: true\n        , scaleControl: false,\n        logoControl: false,\n        mapDataControl: false,\n        zoomControl: false,\n        mapTypeControl: false\n\t};\n\tmap = new naver.maps.Map('map', mapOptions);\n\tmap.setMapTypeId(naver.maps.MapTypeId.SATELLITE);\n\n\tif(course_info_list.length > 0) {\n\t\tsetCourseInfoList();\n\t}\n\t\n\tgetDataList();\n}, 1000); // 500ms가 경과하면 이 함수가 실행됩니다.\n\n\n// 2. driving_mode 에 따른 설정 (5초에 한번 설정)\nvar refreshIntervalId = setInterval(function() {\n\tgetDataList();\n}, 5000); // 5000ms가 경과하면 이 함수가 실행됩니다.\n\n// 지도 설정\nfunction setMapPoint(laloList) {\n    laloList = sortTrackData(laloList);\n// \tmap.refresh(true);\n// \tmap.destroy();\n\t\n\t// center 설정\n// \tvar mapOptions = {\n// \t\tcenter: new naver.maps.LatLng(37.569641, 126.646412),\n// \t    zoom: zoomSize\n// \t};\n// \tmap = new naver.maps.Map('map', mapOptions);\n\n\t// 이전에 그린 polyine을 제거해준다.\n\t$.each(polylines, function(index, item) {\n\t\titem.setMap(null);\n\t});\n\n\t// 이전에 그린 circle를 제거해준다.\n\t$.each(circles, function(index, item) {\n\t\titem.setMap(null);\n\t});\n\n\t// initialize\n\tpolylines =[];\n\tcircles = [];\n\n\t// polyline path array\n\tvar polylinePath = [];\n\n\t// 위도, 경도, 지역정보, 순위(최종전 1, 최종2), 좌표\n\tvar latitude, longitude, location, metric, coordinate = '';\n\n\t// 가져온 데이터 설정\n\t$.each(laloList, function(index, item) {\n\t\tlatitude = item.latitude;\n\t\tlongitude = item.longitude;\n\t\tlocation = item.loc;\n\t\tmetric = item.metric;\n\t\tcoordinate = new naver.maps.LatLng(latitude, longitude);\n\n\t\tpolylinePath.push(coordinate);\n\t\t\t\n\t\t\n\n\t\t// 최종적 데이터까지 동그라미를 지도에 표시한다.\n\t\tif(metric == 1) {\n\t\t\tvar circle = new naver.maps.Circle({\n\t\t\t    map: map,\n\t\t\t    center: coordinate,\n\t\t\t    //radius:2,\n\t\t\t\tradius:1.5,\n\t\t\t    fillColor: 'orange',\n\t\t\t    strokeColor: 'orange',\n\t\t\t    //fillOpacity: 2\n\t\t\t\tfillOpacity: 1.5\n\t\t\t});\n\n\t\t\tcircles.push(circle);\n\t\t}\n\t\t\n\t});\n\n\t// 동그라미 사이에 선을 그린다.\n\tvar polyline = new naver.maps.Polyline({\n\t    map: map,\n\t    path: polylinePath,\n\t    strokeColor: 'orange',\n\t    strokeWeight: 2\n\t});\n\n\tpolylines.push(polyline);\n\n\t// 최종 동그라미를 그린다. \n\tvar circle = new naver.maps.Circle({\n\t    map: map,\n\t    center: coordinate,\n\t    //radius: 2.5,\n\t\tradius: 2,\n\t    fillColor: 'yellow',\n\t    strokeColor: 'yellow',\n\t    //fillOpacity: 2\n\t\tfillOpacity: 1.5\n\t});\n\n\tcircles.push(circle);\n}\n\n//데이터 수정\nfunction sortTrackData(jsonList){\n\n\tvar modifiedJsonList = [];\n\t\n\t$.each(jsonList, function(index, item){\n\t\tif (index != jsonList.length-1){\n\t\t\tmodifiedJsonList.push({'latitude' : item.latitude, 'longitude' : item.longitude, 'loc':'[' + index + ']', 'metric' : 1} );\n\t\t}\n\t\telse{\n\t\t\tmodifiedJsonList.push({'latitude' : item.latitude, 'longitude' : item.longitude, 'loc':'[' + index + ']', 'metric' : 2} );\n\t\t}\n\t});\n\n\treturn modifiedJsonList;\n}\n\n//데이터 가져오기.\nfunction getDataList(){\n\tvar url = '${node_red_1}/getTrackingMapInfo'\n\tvar params = {};\n\t//params.robot_id = 'robot00008';\n\tparams.robot_id = '${robot_id}';\n\n\t$.ajax({\n\t\ttype: \"POST\",\n\t\tdataType: 'json', \n\t\tdata: params,\n\t\turl: url,\n\t\tsuccess: function(callback) {\n\t\t\tvar laloList = callback.data;\n\t\t\t\n\t\t\tif(laloList != null && laloList.length > 0) {\n\t\t\t\tsetMapPoint(laloList);\n\t\t\t}\n\t\t},\n\t\terror: function(e) {\n\t\t\tconsole.log(e);\n\t\t}\n\t});\n}\n</script>\n</body>\n</html>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  \"time\" AS \"time\",\n  rq_chl_a\nFROM ts_decided_water_quality\nWHERE\n  $__timeFilter(\"time\")\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "rq_chl_a"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_decided_water_quality",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Tracking Map",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 10,
+        "y": 8
+      },
+      "id": 36,
+      "options": {
+        "content": "<style>\r\n\tarea:focus{border: none;outline:none;outline-style: none;-moz-outline-style:none; }\r\n\t.map_area {width:100%;height:100%; background-color: #252629;text-align:center;font-size:0;}\r\n\t.map_area_con {position:relative;width:224px; height:224px;margin:0 auto;}\r\n\t.map_item1 {position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); width:56px;height:56px;background-color:#7fb7f6;border-radius:50%;}\r\n\t.map_arrow {position:absolute; top:50%; left:50%; margin-top:calc(-110px / 2); margin-left:calc(-40px / 2);width:40px;height:110px;background:url('${cs_url}/eco-public/static/img_po_arrow.png') no-repeat 0 0;}\r\n\t.btn_stop {position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); width:25px;height:25px;background-color:#3b3c3f;border-radius:50%; cursor:pointer;}\r\n\t.btn_stop:after {content:'';position: relative;}\r\n\t.btn_stop:before {content:'';position:absolute; top:50%; left:50%; transform: translate(-50%, -50%);display:inline-block;width:8px;height:8px;background-color:#fff;}\r\n\t.btn_stop:hover{background-color:#2189ff;} \r\n\t.btn_stop:active{background-color:#2157a0;} \r\n\t.btn_stop:hover:before {background-color:#fff;}\r\n\t.map_area .text {position:absolute;top:0;right:-50px;opacity: 0.45;font-family: Roboto;font-size: 50px;font-weight: 100;font-stretch: normal;font-style: normal;line-height: 1.32;letter-spacing: normal;text-align: center;color: #cccccc;}\r\n\timg.disabled {cursor:not-allowed;}\r\n\timg.disabled ~ .map_item1 {display:none;}\r\n\timg.disabled ~ .btn_stop {display:none;}\r\n</style>\r\n\r\n<div class=\"map_area\">\r\n\t<div class=\"map_area_con\">\r\n\t\t<img src=\"${cs_url}/eco-public/static/btn_position0.png\" class=\"btn_position\">\r\n\t\t<span class=\"map_item1\"></span>\r\n\t\t<span class=\"map_arrow\" style=\"display:none;\"></span>\r\n\t\t<span class=\"btn_stop\"></span>\r\n\t\t<span class=\"text\">4</span>\r\n\t\t<map name=\"image-map\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"0\" coords=\"71,7,94,64,111,61,130,67,155,8,129,3,109,1,91,2\" shape=\"poly\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"45\" coords=\"155,9,131,64,141,72,150,80,159,92,214,68,202,48,191,34,175,19\" shape=\"poly\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"90\" coords=\"213,70,157,92,162,105,161,119,157,130,213,154,219,134,223,110,220,86\" shape=\"poly\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"135\" coords=\"214,154,157,130,151,141,143,150,131,156,153,214,173,205,187,191,204,174\" shape=\"poly\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"180\" coords=\"153,213,131,157,119,161,104,160,92,157,68,213,84,218,98,222,118,222,138,219\" shape=\"poly\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"225\" coords=\"67,213,92,158,79,149,71,139,66,129,8,151,16,167,25,179,36,193,49,204,58,209\" shape=\"poly\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"270\" coords=\"8,151,65,129,63,116,62,105,67,91,10,66,5,77,2,91,1,109,1,126,5,139\" shape=\"poly\">\r\n\t\t\t<area alt=\"\" title=\"\" href=\"#\" onclick=\"return false;\" class=\"btn_compass\" rel=\"315\" coords=\"11,65,65,90,71,81,79,73,86,68,94,65,70,8,59,13,48,21,39,28,27,38,18,52\" shape=\"poly\">\r\n\t\t</map>\r\n\t</div>\r\n</div>   \r\n\r\n<script>  \r\n\tvar direction_driving_mode = '${driving_mode}'.split('|')[0];\r\n\tvar direction_enable_mode = '${driving_mode}'.split('|')[1];\r\n\r\n\tif (direction_enable_mode == '1' || direction_driving_mode =='99'){\r\n\t\tDrawArrow(true);    \r\n    } else {\r\n        DrawArrow(false);\r\n    }\r\n\r\n\tfunction DrawArrow(direction_disabled){\r\n\t\t\r\n\t\tvar default_direction_val = 0;  \r\n\r\n\t\tif('${direction_val}' =='') {\r\n\t\t\t$('.map_arrow').hide();   \r\n\t\t} else {\r\n\t\t\t$('.map_arrow').show();\r\n\t\t\tdefault_direction_val = '${direction_val}';\r\n\t\t}\r\n\t\t\r\n\t\tvar wind_direction = default_direction_val;  \r\n\r\n\t\tif(direction_disabled) {\r\n\t\t\t$('.btn_position').addClass(\"disabled\");\r\n\t\t\t$('.btn_position').attr('disabled', true);\r\n\t\t\t$('.btn_position').attr('src', '${cs_url}/eco-public/static/btn_dis_position1.png');\r\n\t\t} else {\r\n\t\t\t$('.btn_compass').on('click', function() {\r\n\t\t\t\tcallUpdateAjax($(this).attr('rel'));\r\n\t\t\t});\r\n\r\n\t\t\t$('.btn_stop').off().on('click', function() {\r\n\t\t\t\tcallUpdateAjax('pause');\r\n\t\t\t});\r\n\t\t\r\n\t\t\t$('.btn_position').attr('usemap', '#image-map');\r\n\t\t\r\n\t\t\t$('map[name=\"image-map\"] area').mouseenter(function(e) {\r\n\t\t\t\tvar step_num = $(\"area\").index(this) + 1;\r\n\t\t\t\tvar _$img = $('.btn_position').attr('src');\r\n\t\t\t\t$('.btn_position').attr('src', '${cs_url}/eco-public/static/btn_hover_position' + step_num + '.png');\r\n\t\t\t});\r\n\t   \r\n\t\t\t$('map[name=\"image-map\"] area').mousedown(function(e) {\r\n\t\t\t\tvar step_num = $(\"area\").index(this) + 1;\r\n\t\t\t\tvar _$img = $('.btn_position').attr('src');\r\n\t\t\t\t$('.btn_position').attr('src', '${cs_url}/eco-public/static/btn_position' + step_num + '.png');\r\n\t\t\t});\r\n\r\n\t\t\t$('map[name=\"image-map\"] area').mouseup(function(e) {\r\n\t\t\t\tvar step_num = $(\"area\").index(this) + 1;\r\n\t\t\t\tvar _$img = $('.btn_position').attr('src');\r\n\t\t\t\t$('.btn_position').attr('src', '${cs_url}/eco-public/static/btn_hover_position' + step_num + '.png');\r\n\t\t\t});\r\n\t\t\t\r\n\t\t\t$('map[name=\"image-map\"] area').mouseleave(function(e) {\r\n\t\t\t\t$('.btn_position').attr('src', '${cs_url}/eco-public/static/btn_position0.png');\r\n\t\t\t});\r\n\t\t}\r\n\t\r\n\t\t$('.map_arrow').css({'transform':'rotate('+ wind_direction +'deg)'});\r\n\t}\r\n\r\n\tfunction callUpdateAjax(wind_direction){\r\n\r\n\t\tvar url = '${node_red_1}/driving_control';\r\n\t\tvar md = new MobileDetect(navigator.userAgent);\r\n \t\tvar data = new Object();\r\n\t\tdata.token = '${nr_token}';\r\n \t\tdata.robot_id = '${robot_id}';\r\n \t\tdata.module = 'update_wind_direction';\r\n \t\tdata.wind_direction = wind_direction;\r\n\t\tdata.user_id = '${__user.login}';\r\n\t\tdata.screen_name = '${__dashboard}';\r\n\t\tdata.url = geturl;\r\n\t\tdata.ip = ip;\r\n\r\n \t\tif (wind_direction =='pause'){\r\n\t\t\tconsole.log(wind_direction);\r\n \t\t\tdata.driving_mode = '00';\r\n \t\t}else {\r\n \t\t\tdata.driving_mode = '02';\r\n \t\t}\r\n        \r\n\t\tif(md.mobile()){\r\n\t\t\tdata.mobile_yn='Y';\r\n\t\t\tdata.mobile_name= useragent;\r\n\t\t}else {\r\n\t\t\tdata.mobile_yn='N';\r\n\t\t\tdata.mobile_name= useragent;\r\n\t\t}\r\n\t\t\r\n \t\t$.ajax({\r\n\t\t\ttype: \"POST\",\r\n \t\t\tdataType: 'json', \r\n \t\t\tdata: data,\r\n \t\t\turl: url,\r\n \t\t\tsuccess: function(callback) {\r\n\t\t\t\tconsole.log('success');\r\n\t\t\t\tconsole.log(callback);\r\n\t\t\t\tif(callback.errorCode == '0001') {\r\n\t\t\t\t\talert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\r\n\t\t\t\t}\r\n \t\t\t},\r\n\t\t\terror: function(request, status, error) {\r\n\t\t\t\talert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\r\n\t\t\t\tconsole.log('fail');\r\n \t\t\t}\r\n \t\t});\r\n\t}\r\n</script>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "방향 이동 주행",
+      "type": "text"
+    },
+    {
+      "content": "<img id=\"videoC\" name=\"videoC\" width=\"640\" height=\"360\" hspace=\"0\" vspace=\"0\" src=\"http://http-node-red.apps.okd4.northstar.co.kr/stream_test\" style=\"width: 640px; height: 360px;\">\n\n",
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 10,
+        "x": 14,
+        "y": 8
+      },
+      "id": 166,
+      "links": [],
+      "mode": "html",
+      "options": {
+        "content": "<!--\n    <img id=\"videoC\" name=\"videoC\" width=\"100%\" height=\"360\" hspace=\"0\" vspace=\"0\" src=\"http://http-node-red.apps.okd4.northstar.co.kr/cctv_mini\" style=\"width: 100%; height: 360px;\">\n-->    \n\n<!--\n    <img id=\"videoC\" name=\"videoC\" width=\"100%\" height=\"450\" hspace=\"0\" vspace=\"0\" src=\"http://223.171.86.121:28080/videostream.cgi?user=admin&pwd=ecopeace123\" style=\"width: 100%; height: 430px;\">\n--> \n\n<!--\n    <img id=\"videoC\" name=\"videoC\" width=\"100%\" height=\"450\" hspace=\"0\" vspace=\"0\" src=\"http://http-node-red.apps.okd4.northstar.co.kr/cctv_all_stream?robot_id=$robot_id\" style=\"width: 100%; height: 430px;\">\n--> \n\n<img id=\"videoC\" name=\"videoC\" width=\"100%\" height=\"450\" hspace=\"0\" vspace=\"0\" style=\"width: 100%; height: 430px;\">\n\n<script type=\"text/javascript\">\n\n$(function() {\n    var url =  '${node_red_1}' + '/cctv_all_stream?robot_id=' + '${robot_id}';\n    $('#videoC').attr('src', url);\n});\n\n</script>\n",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CCTV Camera",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "decimals": 1,
+          "mappings": [],
+          "max": 5,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 0
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 1
+              },
+              {
+                "color": "yellow",
+                "value": 2
+              },
+              {
+                "color": "dark-orange",
+                "value": 3
+              },
+              {
+                "color": "rgb(223, 65, 33)",
+                "value": 4
+              },
+              {
+                "color": "rgb(223, 65, 33)",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "velocityknot"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 10,
+        "y": 16
+      },
+      "id": 139,
+      "options": {
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^현재 주행 속도$/",
+          "values": true
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  speed AS \"현재 주행 속도\"\n  --(speed * 2) AS \"현재 주행 속도\"\nFROM ts_self_driving\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\norder by \"time\" desc\nlimit 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "현재 속도",
+      "type": "gauge"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "",
+              "to": "",
+              "type": 1,
+              "value": ""
+            }
+          ],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 0
+              },
+              {
+                "color": "rgb(103, 185, 99)",
+                "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 3
+              },
+              {
+                "color": "rgb(223, 65, 33)",
+                "value": 4
+              },
+              {
+                "color": "rgb(223, 65, 33)",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "velocityknot"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 12,
+        "y": 16
+      },
+      "id": 45,
+      "options": {
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "robot_id",
+          "rawQuery": true,
+          "rawSql": "SELECT driving_speed as \"주행설정속도\"\nFROM tb_driving_config_info\nwhere equip_id = '$robot_id'",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "speed"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "속도"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ts_self_driving",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT limit_speed as \"주행제한속도\"\nFROM tb_driving_config_info\nwhere equip_id = '$robot_id'",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "설정 속도",
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 156,
+      "panels": [],
+      "title": "장비 제어",
+      "type": "row"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 0,
+        "y": 22
+      },
+      "id": 30,
+      "options": {
+        "content": "<style>\n</style>\n\n<div class = \"auto-drive-button\">\n<button id = \"auto-drive-action\" class=\"btn_type2\"> 실행 </button>\n</div>\n\n\n<script>\t\n\n$(function(){\n    var course_driving_mode = '${driving_mode}'.split('|')[0]\n\tvar course_enable_mode = '${driving_mode}'.split('|')[1]\n\tif (course_enable_mode == '1' || course_driving_mode =='99'){\n\t$('.btn_type2').attr('disabled', true);\n\t}\n\t$('#auto-drive-action').off().on('click', function() {\n    autoDriveCallAjax();\n\t})\n\t\n});\n\n  function autoDriveCallAjax(){\n\t\tvar url = '${node_red_1}/driving_control';\n\t\tvar md = new MobileDetect(navigator.userAgent);\n\t\tvar data = new Object();\n\t\tdata.token = '${nr_token}';\n\t\tdata.robot_id = '${robot_id}';\n\t\tdata.driving_mode = '01';\n\t\tdata.user_id = '${__user.login}';\n\t\tdata.screen_name = '${__dashboard}';\n\t\tdata.url = geturl;\n\t\tdata.module = 'update_auto_driving_mode';\n\t\tdata.ip =ip;\n\t\t if(md.mobile()){\n         data.mobile_yn='Y';\n         data.mobile_name= useragent;\n         }else {\n         data.mobile_yn='N';\n         data.mobile_name= useragent;\n         }\n\t\t$.ajax({\n\t\t\ttype: \"POST\",\n\t\t\tdataType: 'json', \n\t\t\tdata: data,\n\t\t\turl: url,\n\t\t\tsuccess: function(callback) {\n\t\t\t\tconsole.log('success');\n\t\t\t\tconsole.log(callback);\n\t\t\t  if(callback.errorCode == '0001') {\n\t            alert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\n\t          }\n\t\t\t},\n\t\t\terror: function(request, status, error) {\n\t          alert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\n\t\t\t  console.log('fail');\n\t\t\t}\n\t\t});\n\t}\n\n</script>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "7.1.0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "코스",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 7,
+        "x": 2,
+        "y": 22
+      },
+      "id": 37,
+      "options": {
+        "content": "<div class=\"pump_control\">\r\n<div class=\"pump_row\">\r\n   <dl class=\"pump_item\">\r\n      <dt>펌프1</dt>\r\n      <dd>\r\n         <input type=\"checkbox\" id=\"switch1\" name=\"switch1\" class=\"input__on-off\">\r\n         <label for=\"switch1\" class=\"label__on-off\">\r\n            <span class=\"marble\"></span>\r\n            <span class=\"on\">ON</span>\r\n            <span class=\"off\">OFF</span>\r\n         </label>\r\n      </dd>\r\n   </dl>\r\n</div>\r\n</div>\r\n\r\n<script>\r\n$(function(){\r\n  \r\n  var pump_driving_mode ='${driving_mode}'.split('|')[0]\r\n  var pump_enable_mode ='${driving_mode}'.split('|')[1]\r\n  var pump_id_list = ${pump_id_list:json};\r\n  pump_html = ''\r\n  if (pump_id_list != ''){\r\n  } else{\r\n    pump_html = '<div class = \"pump_null\">현재 선택한 기기의 펌프 정보가 없습니다.</div>'\r\n    $('.pump_control').html(pump_html);\r\n  }\r\n   \r\n    for (var i =0 ; i< pump_id_list.length ;i++ ){\r\n\t\t   if ((i+1)%4 == 1){\r\n\t\t         pump_html += '<div class=\"pump_row\">';\r\n\t\t      }\r\n\t      var pump = pump_id_list[i].split(',');\r\n\t      var pumpId = pump[0];\r\n\t      var pumpStatus = pump[1];\r\n         var pumpDesc = pump[2].slice(-3, pump[2].length);\r\n         var pump_mode = '';\r\n          if (pump_enable_mode == '1' || pump_driving_mode == '99'){\r\n            pump_mode = 'disabled = \"disabled\"';\r\n         } \r\n\t\t   pump_html += '<dl class=\"pump_item\">';\r\n\t\t   pump_html += '<dt>'+ pumpDesc +'</dt><dd>'\r\n        \r\n\t      pump_html += '<input type=\"checkbox\" id=\"pump'+(i+1)+'\" name=\"pump'+(i+1)+'\" class=\"input__on-off input_pump-control\"'+pump_mode + 'value=\"'+pumpId+'\">';\r\n\t      pump_html += '<label for=\"pump'+(i+1)+'\" class=\"label__on-off\">';\r\n\t      pump_html += '<span class=\"marble\"></span><span class=\"on\">ON</span><span class=\"off\">OFF</span></label></dd></dl>';\r\n\r\n\t\t  if ((i+1)%4 == 0){\r\n\t\t\t  pump_html += '</div>'\r\n\t\t\t  }\r\n\t     \r\n\t   }\r\n   $('.pump_control').html(pump_html);\r\n   \r\n   $(pump_id_list).each(function(index, item) {\r\n      var pump = item.split(',');\r\n      var pumpId = pump[0];\r\n      var pumpStatus = pump[1];\r\n      var pumpDesc = pump[2];\r\n\r\n      if(pumpStatus == 'ON') {\r\n         $('input:checkbox[id=\"pump'+(index+1)+'\"]').attr(\"checked\", true);\r\n      }\r\n   })\r\n\r\n   $(\".input_pump-control\").click( function() {\r\n      var pumpId = $(this).val();\r\n      \r\n      var pumpStatus = 'OFF';\r\n      if($(this).is(\":checked\")) {\r\n         pumpStatus = 'ON';\r\n      }\r\n      \r\n         pumpCallAjax(pumpId, pumpStatus);\r\n   })\r\n         \r\n      \r\n});\r\n\r\nfunction pumpCallAjax(pumpId, pumpStatus){\r\n\tvar url = '${node_red_1}/pump_control';\r\n\tvar md = new MobileDetect(navigator.userAgent);\r\n\tvar data = new Object();\r\n\tdata.token = '${nr_token}';\r\n\tdata.robot_id = '${robot_id}';\r\n\tdata.pump_id = pumpId;\r\n\tdata.pump_status = pumpStatus;\r\n\tdata.user_id = '${__user.login}';\r\n\tdata.screen_name = '${__dashboard}';\r\n\tdata.url = geturl;\r\n\tdata.ip = ip;\r\n\t\r\n\tif(md.mobile()){\r\n\t\tdata.mobile_yn ='Y';\r\n\t\tdata.mobile_name = useragent;\r\n\t}else {\r\n\t\tdata.mobile_yn ='N';\r\n\t\tdata.mobile_name = useragent;\r\n\t}\r\n\r\n\t$.ajax({\r\n\t\ttype: \"POST\",\r\n\t\tdataType: 'json', \r\n\t\tdata: data,\r\n\t\turl: url,\r\n\t\tsuccess: function(callback) {\r\n\t\t\tif(callback.errorCode == '0001') {\r\n\t            alert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\r\n\t            beforeChecked();\r\n\t        }\r\n\t\t\telse{\r\n\t\t\t\tconsole.log('success');\r\n\t\t\t\tconsole.log(callback);\r\n\t\t\t}\r\n\t\t},\r\n\t\terror: function(e) {\r\n\t\t\tconsole.log('fail');\r\n\t\t\tconsole.log(e);\r\n\t\t\talert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\r\n\t\t}\r\n\t});\r\n}\r\n\r\n</script>\r\n\r\n",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "펌프 제어",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 9,
+        "y": 22
+      },
+      "id": 20,
+      "options": {
+        "content": "\r\n<div class=\"velocity-controller vertical-cenetr\">\r\n<div class=\"vertical-item\">\r\n  <button id=\"btn1Up\" class=\"btn_type velocity\">+0.1</button>\r\n&nbsp;\r\n<button id=\"btn5Up\" class=\"btn_type velocity\">+0.5</button>\r\n&nbsp;\r\n<button id=\"btn10Up\" class=\"btn_type velocity\">+1.0</button>\r\n<br>\r\n<br>\r\n<button id=\"btn1Down\" class=\"btn_type velocity\">-0.1</button>\r\n&nbsp;\r\n<button id=\"btn5Down\" class=\"btn_type velocity\">-0.5</button>\r\n&nbsp;\r\n<button id=\"btn10Down\" class=\"btn_type velocity\">-1.0</button>\r\n</div>\r\n\r\n</div>\r\n\r\n\r\n<script>\r\n\r\n\r\n   var velocity_enable_mode = '${driving_mode}'.split('|')[0]\r\n    var velocity_driving_mode = '${driving_mode}'.split('|')[1]\r\n   \r\n   if (velocity_driving_mode == '1' || velocity_enable_mode == '99'){\r\n   $('.velocity').attr('disabled', true);\r\n   \r\n   }\r\n\r\n\t//$('#btn1Up').click(function() {\r\n  //var speed = 0.1;\r\n  //callAjax(speed);\r\n\t//});\r\n\r\n  $('#btn1Up').off().on('click', function() {\r\n    var speed = 0.1;\r\n    callAjax(speed);\r\n\t});\r\n\r\n  \t$('#btn1Down').off().on('click', function() {\r\n  var speed = -0.1;\r\n  callAjax(speed);\r\n\t});\r\n\r\n  \t$('#btn5Up').off().on('click', function() {\r\n  var speed = 0.5;\r\n  callAjax(speed);\r\n\t});\r\n\r\n  \t$('#btn5Down').off().on('click', function() {\r\n  var speed = -0.5;\r\n  callAjax(speed);\r\n\t});\r\n\r\n  \t$('#btn10Up').off().on('click', function() {\r\n  var speed = 1.0;\r\n  callAjax(speed);\r\n\t});\r\n\r\n  \t$('#btn10Down').off().on('click', function() {\r\n  var speed = -1.0;\r\n  callAjax(speed);\r\n\t});\r\n\r\n  function callAjax(speed){\r\n\tvar url = '${node_red_1}/driving_control';\r\n  var md = new MobileDetect(navigator.userAgent);\r\n  var data = new Object();\r\n  data.token = '${nr_token}';\r\n  data.robot_id = '${robot_id}';\r\n  data.driving_speed = speed;\r\n  data.module = 'update_speed';\r\n  data.user_id = '${__user.login}';\r\n\tdata.screen_name = '${__dashboard}';\r\n  data.url = geturl;\r\n  data.ip = ip;\r\n  if(md.mobile()){\r\n         data.mobile_yn='Y';\r\n         data.mobile_name= useragent;\r\n         }else {\r\n         data.mobile_yn='N';\r\n         data.mobile_name= useragent;\r\n         }\r\n  $.ajax({\r\n   type: \"POST\",\r\n   dataType: 'json', \r\n   data: data,\r\n   url: url,\r\n   success: function(callback) {\r\n     console.log('success');\r\n     console.log(callback);\r\n     if(callback.errorCode == '0001') {\r\n\t     alert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\r\n\t   }\r\n   },\r\n\t   error: function(request, status, error) {\r\n\t     alert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\r\n\t\t\t console.log('fail');\r\n     }\r\n\t});\r\n  }\r\n</script>\r\n\r\n",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "속도 변경",
+      "type": "text"
+    },
+    {
+      "content": "<style>\r\n.btn_list {\r\n  display: inline-block;\r\n  padding: 5px 30px;\r\n  cursor: pointer;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  outline: none;\r\n  color: #000;\r\n  background-color: #cce0ff;\r\n  border: none;\r\n  border-radius: 5px;\r\n  box-shadow: 0 5px #999;\r\n}\r\n\r\n.btn_list:hover {background-color: #0066ff}\r\n\r\n.btn_list:active {\r\n  background-color: #3e8e41;\r\n  box-shadow: 0 5px #666;\r\n  transform: translateY(4px);\r\n}\r\n</style>\r\n..\r\n<button id=\"btnUp\" class=\"btn_list ico_search ico_search\" type=\"button\">Up</button>\r\n..\r\n<button id=\"btnDown\" class=\"btn_list ico_search ico_search\" type=\"button\">Down</button>\r\n..\r\n<button id=\"btnLeft\" class=\"btn_list ico_search ico_search\" type=\"button\">Left</button>\r\n..\r\n<button id=\"btnRight\" class=\"btn_list ico_search ico_search\" type=\"button\">Right</button>\r\n..\r\n<script type=\"text/javascript\">\r\n\r\n\r\n$(function() {\r\n\r\n\tvar baseUrl = 'http://175.193.85.126:61031';\r\n\r\n\tvar decoder_control_url = 'decoder_control.cgi?loginuse=admin&loginpas=nsc202010';\r\n\t\r\n\t$('#btnUp').click(function() {\r\n\t\tvar url = baseUrl + '/' + decoder_control_url + '&onestep=1&command=0';\r\n\t\tcallAjax(url);\r\n\t});\r\n\t\t$('#btnDown').click(function() {\r\n\t\tvar url = baseUrl + '/' + decoder_control_url + '&onestep=1&command=2';\r\n\t\tcallAjax(url);\r\n\t\t});\r\n\t$('#btnLeft').click(function() {\r\n\t\tvar url = baseUrl + '/' + decoder_control_url + '&onestep=1&command=4';\r\n\t\tcallAjax(url);\r\n\t});\r\n\t$('#btnRight').click(function() {\r\n\t\tvar url = baseUrl + '/' + decoder_control_url + '&onestep=1&command=6';\r\n\t\tcallAjax(url);\r\n\t});\r\n\r\n\r\n\tfunction callAjax(url) {\r\n\r\n\t\tvar headerVal = {\r\n\t\t\t\t 'Access-Control-Allow-Credentials' : true,\r\n\t\t\t\t 'Access-Control-Allow-Origin':'*',\r\n\t\t\t\t 'Access-Control-Allow-Methods':'GET',\r\n// \t\t\t\t 'Access-Control-Allow-Headers':'application/json',\r\n// \t\t\t\t 'Access-Control-Allow-Headers':'jsonp',\r\n\t\t\t\t 'Access-Control-Allow-Headers':'*',\r\n\t\t\t\t};\r\n\t\t\r\n\t\tconsole.log(url);\r\n\t\t\t$.ajax({\r\n// \t\t\tcrossOrigin: true,\r\n\t    \ttype: 'GET',\r\n// \t        headers: headerVal,\r\n\t        dataType: 'jsonp',\r\n// \t        dataType: 'text/html',\r\n// \t\t\tcontentType: (!isFile ? \"application/json; charset=utf-8\" : false), \r\n\t\t\tcontentType: false, \r\n// \t\t\tcontentType: 'multipart/x-mixed-replace;boundary=ipcam264', \r\n\t        jsonp: 'callback',\r\n\t        url: url,\r\n// \t        responseType:'application/json',\r\n// \t        responseType:'text/html',\r\n\t        success: function(callback) {\r\n\t        \tconsole.log('success');\r\n\t        \tconsole.log(callback);\r\n\t\t\t},\r\n\t        error: function(e) {\r\n\t        \tconsole.log('fail');\r\n\t        \tconsole.log(e);\r\n\t\t\t}\r\n\t\t}); \r\n\t}\r\n});\r\n\r\n</script>\r\n\r\n\r\n\r\n\r\n",
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 10,
+        "x": 14,
+        "y": 22
+      },
+      "id": 113,
+      "links": [],
+      "mode": "html",
+      "options": {
+        "content": "\r\n</style>\r\n<div class = \"camera-control-button vertical-cenetr\">\r\n   <div class=\"vertical-item\">\r\n      <button id=\"btnInit\" class=\"btn_type\" type=\"button\">Default</button>\r\n         &nbsp;\r\n      <button id=\"btnUp\" class=\"btn_type\" type=\"button\">Up</button>\r\n         &nbsp;\r\n      <button id=\"btnDown\" class=\"btn_type\" type=\"button\">Down</button>\r\n         &nbsp;\r\n      <button id=\"btnLeft\" class=\"btn_type\" type=\"button\">Left</button>\r\n         &nbsp;\r\n      <button id=\"btnRight\" class=\"btn_type\" type=\"button\">Right</button>\r\n   </div>\r\n\r\n</div>\r\n\r\n<script type=\"text/javascript\">\r\n\r\n$(function() {\r\n\t   var nr_token = '${nr_token}';\r\n\t\tvar cctv_driving_mode = '${driving_mode}'.split('|')[0];\r\n\t   var cctv_enable_mode = '${driving_mode}'.split('|')[1];\r\n   /*   \r\n      if (cctv_enable_mode == '1' || cctv_driving_mode =='99' ){\r\n\t   $('.btn_type').attr('disabled', true);\r\n\t   }\r\n   */\r\n\t\t$('#btnUp').click(function() {\r\n\t\t\tvar param ='&onestep=1&command=0'\r\n\t\t\tcamControlAjax(param);\r\n\t\t});\r\n\t\t\t$('#btnDown').click(function() {\r\n\t\t\tvar param = '&onestep=1&command=2';\r\n\t\t\tcamControlAjax(param);\r\n\t\t\t});\r\n\t\t$('#btnLeft').click(function() {\r\n\t\t\tvar param  ='&onestep=1&command=4';\r\n\t\t\tcamControlAjax(param);\r\n\t\t});\r\n\t\t$('#btnRight').click(function() {\r\n\t\t\tvar param ='&onestep=1&command=6';\r\n\t\t\tcamControlAjax(param);\r\n\t\t});\r\n\t  \r\n\t\t$('#btnInit').click(function() {\r\n\t\t\tvar param ='&command=31&onestep=0&sit=31';\r\n      \r\n\t\t\tcamControlAjax(param);\r\n\t\t});\r\n\r\n\tfunction camControlAjax(param){\r\n\t var url =  '${node_red_1}/cctv_all_control';\r\n    var md = new MobileDetect(navigator.userAgent);\r\n     if(md.mobile()){\r\n         mobile_yn='Y';\r\n         mobile_name= useragent;\r\n         }else {\r\n         mobile_yn='N';\r\n         mobile_name= useragent;\r\n         }\r\n  \t param = param + '&token=' + nr_token +'&user_id='+'${__user.login}'+'&screen_name='+'${__dashboard}'+\r\n            '&url='+geturl+'&ip='+ip+'&mobile_yn='+mobile_yn +'&mobile_name='+useragent;\r\n\t param += '&robot_id=' + '${robot_id}';\t\t\t\t\r\n\t  $.ajax({\r\n\t   type: \"Get\",\r\n\t   url: url,\r\n\t   data: param,\r\n\t   dataType: 'json',\r\n\t   success: function(callback) {\r\n\t   console.log('success');\r\n\t   console.log(callback);\r\n\t      if(callback.errorCode == '0001') {\r\n\t         alert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\r\n\t      }\r\n\t   },\r\n\t   error: function(request, status, error) {\r\n\t         alert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\r\n\t\t\t\tconsole.log('fail');\r\n\t         //console.log(request, status, error);\r\n\t         console.log(request.status);\r\n\t         console.log(request.statusText);\r\n\t         console.log(request.responseText);\r\n\t\t\t}   \r\n\t\t});\r\n\t  }\r\n\t});\r\n\r\n</script>\r\n\r\n\r\n\r\n",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CCTV Control Button",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 170,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select --'코스A' as \"코스\", '1지점' as \"지점\", '펌프1' as \"장비\", '실행중' as \"작업실행여부\", 'ON' as \"동작신호\", '12:00' as \"가능시작시간\", '15:00' as \"가능종료시간\", 10 as \"베터리최소전압(v)\", 20 as \"신호시간(s)\", 30 as \"신호주기(s)\", 2 as \"실행횟수\", 5 as \"실행지연시간(s)\"\r\nci.course_name as \"코스\", mli.seq||'지점' as \"지점\"\r\n, ei.equip_desc as \"장비\"\r\n, case when sd.job_execute_yn = 'Y' then '작업실행' \r\n\twhen sd.job_execute_yn = 'N' then '작업종료' else null end as \"작업실행여부\"\r\n, case when jm.ops_signal = '1' then 'ON' \r\n\twhen jm.ops_signal = '0' then 'OFF' else null end as \"동작신호\"\r\n, jm.ops_start_time as \"가능시작시간\"\r\n, jm.ops_end_time as \"가능종료시간\"\r\n, jm.battery_min_voltage as \"베터리최소전압(V)\"\r\n, jm.signal_time as \"신호시간(s)\", jm.signal_cycle as \"신호주기(s)\"\r\n, jm.execute_count as \"실행횟수\", jm.execute_delay_time as \"실행지연시간(s)\"\r\nfrom ts_self_driving sd\r\nleft outer join tb_course_info ci\r\n\ton sd.robot_id = ci.equip_id\r\n\tand sd.course_id = ci.course_id\r\nleft outer join tb_movement_location_info mli\r\n\ton sd.course_id = mli.course_id\r\n\tand sd.location_id = mli.location_id\r\nleft outer join tb_job_manage jm\r\n\ton sd.course_id = jm.course_id \r\n\tand sd.location_id = jm.location_id\r\n\tand sd.job_id = jm.job_id\r\nleft outer join tb_equipment_info ei\r\n\ton jm.equip_id = ei.equip_id\r\nwhere sd.robot_id = '${robot_id}'\r\norder by sd.\"time\" desc limit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "rq_chl_a"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_decided_water_quality",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": " 코스 작업 진행 정보",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center",
+            "filterable": false
+          },
+          "decimals": 6,
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "No Data",
+              "to": "",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "코스명"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "지점"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "latitude"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "지점1"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": null
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "코스"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "지점3"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "지점4"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 177
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "지점5"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "지점2"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 240
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "위도"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 457
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 14,
+        "x": 0,
+        "y": 29
+      },
+      "id": 24,
+      "links": [],
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "\r\nselect course_name as \"코스\"\r\n, max(course_one) as \"지점1\"\r\n, max(course_two) as \"지점2\"\r\n, max(course_three) as \"지점3\"\r\n, max(course_four) as \"지점4\"\r\n, max(course_five) as \"지점5\"\r\nfrom (\r\n   select ci.course_id, case when dci.equip_id is null then ci.course_name else ci.course_name||' (*)' end as course_name\r\n   , case when mli.seq = 1 then '('||mli.latitude||','||mli.longitude||')' else '' end as course_one\r\n   , case when mli.seq = 2 then '('||mli.latitude||','||mli.longitude||')' else '' end as course_two\r\n   , case when mli.seq = 3 then '('||mli.latitude||','||mli.longitude||')' else '' end as course_three\r\n   , case when mli.seq = 4 then '('||mli.latitude||','||mli.longitude||')' else '' end as course_four\r\n   , case when mli.seq = 5 then '('||mli.latitude||','||mli.longitude||')' else '' end as course_five\r\n   from tb_course_info ci\r\n   left outer join tb_movement_location_info mli\r\n      on ci.course_id = mli.course_id \r\n   left outer join (\r\n      select equip_id, course_id \r\n\t\t  from tb_driving_config_info \r\n\t\t  where equip_id = '$robot_id'\r\n\t) dci\r\n      on ci.course_id = dci.course_id\r\n   left outer join tb_equipment_info ei\r\n      on dci.equip_id = ei.equip_id\r\n   order by ci.course_id asc\r\n) a\r\ngroup by course_name, course_id\r\norder by course_id\r\n;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select ci.course_name as \"코스명\", '지점'||mli.seq as \"위치\", mli.latitude as \"위도\", mli.longitude as \"경도\"\r\nfrom tb_driving_config_info dci\r\ninner join tb_course_info ci\r\n   on dci.course_id = ci.course_id\r\ninner join tb_movement_location_info mli\r\n   on ci.course_id = mli.course_id    \r\nwhere dci.equip_id = '${robot_id}'\r\norder by mli.seq",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "코스 정보",
+      "type": "table"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 10,
+        "x": 14,
+        "y": 29
+      },
+      "id": 162,
+      "options": {
+        "content": "<style>\n</style>\n\n<div class=\".velocity-controller vertical-cenetr\">\n\t<div class=\"vertical-item\">\n\t   <center>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol'  id=\"leftTurn\"\"> 좌회전 </button>\n\t\t<button type='button' class='btn_type2 extend-style-center remotecontrol' id=\"headWay\"> 전 진</button>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol'  id=\"rightTurn\"> 우회전</button>\n\t\t<br>\n\t\t<br>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol' id=\"left\"> 좌 </button>\n\t\t<button type='button' class='btn_type2 extend-style-center remotecontrol' id=\"stop\"> 정지 </button>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol' id=\"right\"> 우 </button>\n\t\t<br>\n\t\t<br>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol'  id=\"rightTurn2\"> 우회전 </button>\n\t\t<button type='button' class='btn_type2 extend-style-center remotecontrol' id=\"backward\"> 후진</button>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol'  id=\"leftTurn2\"> 좌회전 </button>\n\t\t<br>\n\t\t<br>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol' id=\"speedDown\"> - </button>\n      <button type='button' class='btn_type2 extend-style-center remotecontrol' id=\"powerOn\" style=\"visibility: hidden;\"> ON</button>\n\t\t<button type='button' class='btn_type2 extend-style remotecontrol' id=\"speedUp\"> + </button>\n\t\t<br>\n\t\t<br>\n\t </center>\n\t</div> \n</div>\n\n\n\n<script type=\"text/javascript\">\n$(function(){\n   var control_driving_mode = '${driving_mode}'.split('|')[0];\n    \n   var control_enable_mode = '${driving_mode}'.split('|')[1];\n   \n   if (control_enable_mode == '1' || control_driving_mode == '99') {\n      //remoteControl(true);\n      remoteControl(false);      \n   } else {\n      remoteControl(false);\n   }\n});\n\nfunction remoteControl(remoteControl_disabled) {\n\n   if (remoteControl_disabled) {\n      // 비활성로직 추가.\n   } else {\n      $('#leftTurn').off().on('click', function() {\n    \t  remoteAjax('1006');\n      });\n      $('#headWay').off().on('click', function() {\n    \t  remoteAjax('1001');\n      });\n      $('#rightTurn').off().on('click', function() {\n    \t  remoteAjax('1007');\n      });\n      $('#left').off().on('click', function() {\n    \t  remoteAjax('1003');\n      });\n      $('#stop').off().on('click', function() {\n    \t  remoteAjax('1005');\n      });\n      $('#right').off().on('click', function() {\n    \t  remoteAjax('1004');\n      });\n      $('#backward').off().on('click', function() {\n    \t  remoteAjax('1002');\n      });\n      $('#rightTurn2').off().on('click', function() {\n    \t  remoteAjax('1008');\n      });\n      $('#leftTurn2').off().on('click', function() {\n    \t  remoteAjax('1009');\n      });\n      $('#speedDown').off().on('click', function() {\n         var speed = -0.1;\n         callAjax(speed);\n      });\n      $('#powerOn').off().on('click', function() {\n    \t  endDriveCallAjax('98');\n      });\n      $('#speedUp').off().on('click', function() {\n         var speed = 0.1;\n         callAjax(speed);\n      });\n   }\n}\n\nfunction remoteAjax(wind_direction) {\n      \n   var md = new MobileDetect(navigator.userAgent);\n   var url = '${node_red_1}/driving_control';\n   \n   var data = new Object();\n   data.token = '${nr_token}';\n   data.robot_id = '${robot_id}';\n   data.module = 'update_wind_direction';\n   data.wind_direction = wind_direction;\n   data.user_id = '${__user.login}';\n   data.screen_name = '${__dashboard}';\n   data.url = geturl;\n   data.ip = ip;\n   \n   if (wind_direction == 'power on') {\n      data.wind_direction = '';\n      data.driving_mode = '98';\n   } else {\n      data.driving_mode = '02';\n   }\n   if(md.mobile()){\n\t      data.mobile_yn='Y';\n\t      data.mobile_name= useragent;\n\t      }else {\n\t      data.mobile_yn='N';\n\t      data.mobile_name= useragent;\n\t       }\n   \n   $.ajax({\n      type : \"POST\",\n      dataType : 'json',\n      data : data,\n      url : url,\n      success : function(callback) {\n         console.log('success');\n         console.log(callback);\n         if(callback.errorCode == '0001') {\n\t        alert('인증에 실패 하였습니다. 관리자 문의 바랍니다.')\n\t      }\n      },\n      error: function(request, status, error) {\n\t     alert('서버 오류가 발생했습니다. 관리자 문의 바랍니다.');\n        console.log('fail');\n      }\n   });\n}\n\n</script>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  \"time\" AS \"time\",\n  rq_chl_a\nFROM ts_decided_water_quality\nWHERE\n  $__timeFilter(\"time\")\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "rq_chl_a"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_decided_water_quality",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "수동 컨트롤",
+      "type": "text"
+    },
+    {
+      "collapsed": false,
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "id": 134,
+      "panels": [],
+      "title": "태양광 인버터 정보",
+      "type": "row"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 0,
+        "y": 39
+      },
+      "id": 136,
+      "options": {
+        "content": "<style>\r\n    .solar_inverter_img\r\n    {\r\n    max-width: 100%; \r\n    height: 100%;\r\n    text-align: center;\r\n    }\r\n</style>\r\n<div class = \"solar_inverter_img\">\r\n    <img src = \"${cs_url}/eco-public/grafana-test/solar_inverter.png\" style=\"max-width: 100%; max-height: 100%;\">\r\n</div>\r\n",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "태양광 패널",
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "",
+              "to": "",
+              "type": 1,
+              "value": "Null"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 6,
+        "y": 39
+      },
+      "id": 126,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select\r\n avg(solar_current) as \"충전전류(A)\"\r\n, avg(solar_voltage) as \"충전전압(V)\"\r\n, avg(solar_current* solar_voltage) as \"충전전력(W)\"\r\n, case when solar_status= '0' then 'Null' when '1' then 'Input' end as \"태양전지상태\" \r\n, avg(battery_voltage) as \"베터리전압(V)\" \r\n, avg(battery_temp) as \"베터리온도(℃)\" \r\n, last(battery_soc, \"time\") as \"베터리충전상태(%)\"\r\n, last(cast(charging_status as integer), \"time\") as \"충전상태\" \r\n, last(case when battery_status = 'Normal' then 0 end, \"time\") as \"베터리상태\" \r\n, avg(device_temp) as \"장치온도(℃)\"\r\n, last(case when device_status = 'Normal' then 0 end, \"time\") as \"MPPT상태\" \r\nfrom ts_solar_inverter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\ngroup by robot_id, solar_status\r\norder by 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_solar_inverter",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select\r\n avg(solar_current) as \"충전전류(A)\"\r\n, avg(solar_voltage) as \"충전전압(V)\"\r\n, avg(solar_current* solar_voltage) as \"충전전력(W)\"\r\n, case when solar_status= '0' then 'Null' when '1' then 'Input' end as \"태양전지상태\" \r\nfrom ts_solar_inverter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\ngroup by solar_status\r\norder by 1 desc\r\nlimit 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_solar_inverter",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select\r\n ss.solar_current as \"충전전류(A)\"\r\n, ss.solar_voltage as \"충전전압(V)\"\r\n, ss.solar_current * solar_voltage as \"충전전력(W)\"\r\n, sicd.cd_nm_ko as \"태양전지상태\"\r\nfrom ts_solar_inverter ss\r\nleft outer join tb_code sicd\r\n\ton ss.solar_status = sicd.cd\r\n\tand sicd.grp_cd = 'G13'\r\n where $__timeFilter(ss.\"time\") and ss.robot_id = '$robot_id'\r\norder by \"time\" desc\r\nlimit 1",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Solar Information",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "No Data",
+              "to": "",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 39
+      },
+      "id": 128,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\n avg(device_temp) as \"장치온도(℃)\"\r\n, last(case when device_status = '00' then device_status when device_status = '' or device_status ='' then 'Error' end, \"time\") as \"MPPT상태\" \r\nfrom ts_solar_inverter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\ngroup by robot_id\r\norder by 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_solar_inverter",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select\r\n avg(solar_current) as \"충전전류(A)\"\r\n, avg(solar_voltage) as \"충전전압(V)\"\r\n, avg(solar_current* solar_voltage) as \"충전전력(W)\"\r\n, case when solar_status= '0' then 'Null' when '1' then 'Input' end as \"태양전지상태\" \r\nfrom ts_solar_inverter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\ngroup by solar_status\r\norder by 1 desc\r\nlimit 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_solar_inverter",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\n si.device_temp as \"장치온도(℃)\"\r\n, sicd.cd_nm_ko as \"MPPT상태\"\r\nfrom ts_solar_inverter si\r\nleft outer join tb_code sicd\r\n\ton si.device_status = sicd.cd\r\n\tand sicd.grp_cd = 'G10'\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\norder by \"time\" desc\r\nlimit 1",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Controller Information",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_IOT_POSTGRESQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "No Data",
+              "to": "",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "noValue": "No Data",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 18,
+        "x": 6,
+        "y": 44
+      },
+      "id": 130,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "hide": true,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\n avg(battery_voltage) as \"배터리전압(V)\" \r\n, avg(battery_temp) as \"배터리온도(℃)\" \r\n, last(battery_soc, \"time\") as \"배터리충전량(%)\"\r\n, last(case when charging_status = '0' then 'Float charge' when charging_status ='1' then 'boost charge' when charging_status ='2' then 'equalizing charge' end, \"time\") as \"충전상태\" \r\n, last(case when battery_status = 'Normal' then battery_status when battery_status = '' or battery_status is Null then 'Error' end, \"time\") as \"베터리상태\" \r\nfrom ts_solar_inverter\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\ngroup by robot_id\r\norder by 1 desc\r\nlimit 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ts_solar_inverter",
+          "timeColumn": "\"time\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \r\n si.battery_voltage as \"배터리전압(V)\" \r\n, si.battery_temp as \"배터리온도(℃)\" \r\n, si.battery_soc as \"배터리충전량(%)\"\r\n, cscd.cd_nm_ko as \"충전상태\" \r\n, bscd.cd_nm_ko as \"베터리상태\"\r\nfrom ts_solar_inverter si\r\nleft outer join tb_code cscd\r\n\ton si.charging_status = cscd.cd\r\n\tand cscd.grp_cd = 'G14'\r\nleft outer join tb_code bscd\r\n\ton si.battery_status = bscd.cd\r\n\tand bscd.grp_cd = 'G12'\t\r\nwhere $__timeFilter(\"time\") and robot_id = '$robot_id'\r\norder by \"time\"desc\r\nlimit 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Battery information",
+      "type": "stat"
+    }
+  ],
+  "refresh": "2s",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "SELECT\n  direction_val\nFROM ts_self_driving\nwhere robot_id = '${robot_id}' \n--and \"time\" between to_timestamp($__from / 1000) and to_timestamp($__to / 1000)\nORDER BY \"time\" desc\nlimit 1",
+        "hide": 2,
+        "includeAll": false,
+        "label": "최종방향값",
+        "multi": false,
+        "name": "direction_val",
+        "options": [],
+        "query": "SELECT\n  direction_val\nFROM ts_self_driving\nwhere robot_id = '${robot_id}' \n--and \"time\" between to_timestamp($__from / 1000) and to_timestamp($__to / 1000)\nORDER BY \"time\" desc\nlimit 1",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select ei.equip_name||'['||ei.equip_id ||']' as display_name \nfrom tb_equipment_info ei\ninner join tb_site_item_info si\n\ton ei.equip_id = si.item_id\nwhere si.site_id = 'site00006'\nand si.equip_course_type = 'EQUIP'",
+        "hide": 0,
+        "includeAll": false,
+        "label": "로봇선택",
+        "multi": false,
+        "name": "robot_name_id",
+        "options": [],
+        "query": "select ei.equip_name||'['||ei.equip_id ||']' as display_name \nfrom tb_equipment_info ei\ninner join tb_site_item_info si\n\ton ei.equip_id = si.item_id\nwhere si.site_id = 'site00006'\nand si.equip_course_type = 'EQUIP'",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select substring('$robot_name_id', position('[' in '$robot_name_id')+1, position(']' in '$robot_name_id')-(position('[' in '$robot_name_id')+1))",
+        "hide": 2,
+        "includeAll": false,
+        "label": "로봇ID",
+        "multi": false,
+        "name": "robot_id",
+        "options": [],
+        "query": "select substring('$robot_name_id', position('[' in '$robot_name_id')+1, position(']' in '$robot_name_id')-(position('[' in '$robot_name_id')+1))",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select tei.equip_id || ',' || case when pch.pump_status = '01' then 'ON' else 'OFF' end || ',' || tei.equip_desc  as composite\nfrom tb_equipment_info tei \nleft outer join\n(\n\tselect \"time\", robot_id, equip_id as pump_id, equip_status as pump_status\n\t, row_number() over(partition by robot_id, equip_id order by \"time\" desc) as rn\n\tfrom ts_equip_status\n\twhere robot_id = '${robot_id}'\n        and equip_cd = '05' \n        and \"time\" between now() - interval '1 hour' and now()\n) pch \n\ton tei.equip_id  = pch.pump_id\nwhere tei.equip_cd = '05' \nand tei.parent_id = '${robot_id}'\nand (pch.rn is null or pch.rn = 1)",
+        "hide": 2,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "pump_id_list",
+        "options": [],
+        "query": "select tei.equip_id || ',' || case when pch.pump_status = '01' then 'ON' else 'OFF' end || ',' || tei.equip_desc  as composite\nfrom tb_equipment_info tei \nleft outer join\n(\n\tselect \"time\", robot_id, equip_id as pump_id, equip_status as pump_status\n\t, row_number() over(partition by robot_id, equip_id order by \"time\" desc) as rn\n\tfrom ts_equip_status\n\twhere robot_id = '${robot_id}'\n        and equip_cd = '05' \n        and \"time\" between now() - interval '1 hour' and now()\n) pch \n\ton tei.equip_id  = pch.pump_id\nwhere tei.equip_cd = '05' \nand tei.parent_id = '${robot_id}'\nand (pch.rn is null or pch.rn = 1)",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select coalesce(max(dci.driving_mode||'|'||coalesce(nh.noti_code, '0')), '99|0')\nfrom tb_driving_config_info dci \nleft outer join (\n\tselect *\n\tfrom ts_notification_history \n\twhere robot_id = '$robot_id'\n        and noti_id = 'noti00001'\n\torder by \"time\" desc\n\tlimit 1\n) nh\n\ton dci.equip_id = nh.robot_id \nwhere dci.equip_id = '$robot_id'",
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "driving_mode",
+        "options": [],
+        "query": "select coalesce(max(dci.driving_mode||'|'||coalesce(nh.noti_code, '0')), '99|0')\nfrom tb_driving_config_info dci \nleft outer join (\n\tselect *\n\tfrom ts_notification_history \n\twhere robot_id = '$robot_id'\n        and noti_id = 'noti00001'\n\torder by \"time\" desc\n\tlimit 1\n) nh\n\ton dci.equip_id = nh.robot_id \nwhere dci.equip_id = '$robot_id'",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select nh.noti_name||','||nh.noti_code||','||nh.noti_status||' for '||nh.date_status\nfrom (\n   select nh.\"time\", ni.noti_name, nh.noti_code\n   , case when nh.noti_code = '1' then 'ALERTING' else 'OK' end noti_status\n   , case when (now() - nh.\"time\") >= interval '24 hour' then to_char((now() - nh.\"time\"), 'DD')||' day' else to_char((now() - nh.\"time\"), 'HH24')||' hours' end as date_status\n   from ts_notification_history nh\n   inner join tb_notification_info ni\n      on nh.noti_id = ni.noti_id\n   where nh.\"time\" between now() - interval '30 day' and now()\n   and nh.robot_id = 'robot00008'\n) nh\norder by nh.\"time\" desc",
+        "hide": 2,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "alert_list",
+        "options": [],
+        "query": "select nh.noti_name||','||nh.noti_code||','||nh.noti_status||' for '||nh.date_status\nfrom (\n   select nh.\"time\", ni.noti_name, nh.noti_code\n   , case when nh.noti_code = '1' then 'ALERTING' else 'OK' end noti_status\n   , case when (now() - nh.\"time\") >= interval '24 hour' then to_char((now() - nh.\"time\"), 'DD')||' day' else to_char((now() - nh.\"time\"), 'HH24')||' hours' end as date_status\n   from ts_notification_history nh\n   inner join tb_notification_info ni\n      on nh.noti_id = ni.noti_id\n   where nh.\"time\" between now() - interval '30 day' and now()\n   and nh.robot_id = 'robot00008'\n) nh\norder by nh.\"time\" desc",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select \"time\" from ts_notification_history tnh order by \"time\" desc limit 1;",
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "not_time_variable",
+        "options": [],
+        "query": "select \"time\" from ts_notification_history tnh order by \"time\" desc limit 1;",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select token\nfrom tb_node_red_token_info\nwhere now() between start_date and end_date",
+        "hide": 2,
+        "includeAll": false,
+        "label": "Node Red Token",
+        "multi": false,
+        "name": "nr_token",
+        "options": [],
+        "query": "select token\nfrom tb_node_red_token_info\nwhere now() between start_date and end_date",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select mli.seq||'|'||mli.latitude||'|'||mli.longitude as latlng\nfrom tb_driving_config_info dci \ninner join tb_course_info ci\n\ton dci.course_id = ci.course_id \ninner join tb_movement_location_info mli\n\ton ci.course_id = mli.course_id \nwhere dci.equip_id = 'robot00008'\norder by mli.seq",
+        "hide": 2,
+        "includeAll": true,
+        "label": "코스지점목록",
+        "multi": true,
+        "name": "course_list",
+        "options": [],
+        "query": "select mli.seq||'|'||mli.latitude||'|'||mli.longitude as latlng\nfrom tb_driving_config_info dci \ninner join tb_course_info ci\n\ton dci.course_id = ci.course_id \ninner join tb_movement_location_info mli\n\ton ci.course_id = mli.course_id \nwhere dci.equip_id = 'robot00008'\norder by mli.seq",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select ci.course_name\nfrom tb_driving_config_info dci \ninner join tb_course_info ci\n\ton dci.course_id = ci.course_id \nwhere dci.equip_id = 'robot00008'\nlimit 1",
+        "hide": 2,
+        "includeAll": false,
+        "label": "코스정보",
+        "multi": false,
+        "name": "course_info",
+        "options": [],
+        "query": "select ci.course_name\nfrom tb_driving_config_info dci \ninner join tb_course_info ci\n\ton dci.course_id = ci.course_id \nwhere dci.equip_id = 'robot00008'\nlimit 1",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select case when '${__org.name}' = 'dev' then 'http://http-node-red.apps.okd4.northstar.co.kr' \nelse 'http://node-api-1.eco-bridge.northstar.co.kr' end",
+        "hide": 2,
+        "includeAll": false,
+        "label": "node_red_1",
+        "multi": false,
+        "name": "node_red_1",
+        "options": [],
+        "query": "select case when '${__org.name}' = 'dev' then 'http://http-node-red.apps.okd4.northstar.co.kr' \nelse 'http://node-api-1.eco-bridge.northstar.co.kr' end",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select case when '${__org.name}' = 'dev' then 'http://http-node-red-2.apps.okd4.northstar.co.kr'\nelse 'http:///node-api-1.eco-bridge.northstar.co.kr' end",
+        "hide": 2,
+        "includeAll": false,
+        "label": "node_red_2",
+        "multi": false,
+        "name": "node_red_2",
+        "options": [],
+        "query": "select case when '${__org.name}' = 'dev' then 'http://http-node-red-2.apps.okd4.northstar.co.kr'\nelse 'http:///node-api-1.eco-bridge.northstar.co.kr' end",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_IOT_POSTGRESQL}",
+        "definition": "select case when '${__org.name}' = 'dev' then 'http://http-node-red-common.apps.okd4.northstar.co.kr' \nelse 'http://http-node-red-common.apps.okd4.northstar.co.kr' end",
+        "hide": 2,
+        "includeAll": false,
+        "label": "node_red_common",
+        "multi": false,
+        "name": "node_red_common",
+        "options": [],
+        "query": "select case when '${__org.name}' = 'dev' then 'http://http-node-red-common.apps.okd4.northstar.co.kr' \nelse 'http://http-node-red-common.apps.okd4.northstar.co.kr' end",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "https://storage.googleapis.com",
+          "value": "https://storage.googleapis.com"
+        },
+        "hide": 2,
+        "label": "Cloud Storage Base URL",
+        "name": "cs_url",
+        "options": [
+          {
+            "selected": true,
+            "text": "https://storage.googleapis.com",
+            "value": "https://storage.googleapis.com"
+          }
+        ],
+        "query": "https://storage.googleapis.com",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false,
+    "refresh_intervals": [
+      "2s",
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "평림호 - 운영자 통합관제 대시보드",
+  "uid": "TjPhJFn7z",
+  "version": 148
+}
