@@ -19,8 +19,29 @@ body {
 
 .company_container_box {
     display: flex;
-    padding: 3rem;
-    padding-left: 15rem;
+    justify-content: center;
+    animation: fadein 3s;
+    -webkit-animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .company_container_box h1 {
@@ -52,19 +73,39 @@ body {
 }
 
 .company_container_map {
-    padding-top: 2rem;
+    height: 80rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ecopeace_map {
+    width: 68%;
+    height: 40rem;
 }
 
 .company_container_map h1 {
     font-size: 5rem;
-    padding-left: 15rem;
 }
 
-#ecopeace_map {
-    width: 80%;
-    height: 40rem;
-    align-content: center;
-    margin-left: 15rem;
+.company_container_map_text {
+    padding-top: 2rem;
+    display: flex;
+}
+
+.company_container_map_text img {
+    max-width: 100%;
+    height: 6rem;
+}
+
+.company_container_map_text>div {
+    display: flex;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.company_container_map_text>div>div{
+    padding-left: 2rem;
 }
 
 /* kakao-map */
@@ -85,14 +126,14 @@ body {
     background-color: #ccc;
 }
 
-.kakao_close{
+.kakao_close {
     position: absolute;
-	top: 10px;
-	right: 10px;
-	color: #888;
-	width: 17px;
-	height: 17px;
-	background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+    top: 10px;
+    right: 10px;
+    color: #888;
+    width: 17px;
+    height: 17px;
+    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
 }
 
 .kakao_map_inner {
