@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <link href="/css/product1.css" rel="stylesheet">
+    <!-- slick -->
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div id="product">
+        <h1>Product</h1>
+        <div>
+            <div class="product_container">
+                <div>
+                    <img class="product_list_img" src="/public/images/eco-station.png">
+                    <p>eco-station</p>
+                </div>
+                <div>
+                    <img class="product_list_img" src="/public/images/ecoproduct/eco_bot_500.png">
+                    <p>eco-bot500</p>
+                </div>
+                <div>
+                    <img class="product_list_img" src="/public/images/eco-wing.png">
+                    <p>eco-wing</p>
+
+                </div>
+                <div>
+                    <img class="product_list_img" src="/public/images/eco-bee-500.png">
+                    <p>eco-bee500</p>
+
+                </div>
+                <div>
+                    <img class="product_list_img" src="/public/images/eco-bee-100.png">
+                    <p>eco-bee100</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#header").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
+
+        });
+    </script>
+
+
+    <!-- slick -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.product_container').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+            });
+        });        
+    </script>
+</body>
+
+</html>

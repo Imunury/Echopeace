@@ -154,7 +154,10 @@
                 <img class="main_container3_content_img" src="/public/images/business_04.jpg">
                 <div class="main_container3_content_text">
                     <h2 class="main_container3_content_text_head">
-                        수질정화장치 설치 및 컨설팅팀
+                        수질정화장치
+                    </h2>
+                    <h2 class="main_container3_content_text_head">
+                        설치 및 컨설팅팀
                     </h2>
                     <p class="main_container3_content_text_content">
                         국내외 수질 오염으로 피해를 받고 있는 수요처에 정화 해결책을 제공합니다.
@@ -164,15 +167,34 @@
         </div>
     </div>
 
-    
+
 
     <div id="footer" class="main_container"></div>
 
 
     <!-- script -->
     <script>
+        // 이동
         function main_go_company() {
             window.location.href = 'http://127.0.0.1:5500/page/company.html'
+        }
+
+        // const elements = document.querySelectorAll('.main_container3_content_box');
+
+        // elements.forEach(element => {
+        //     element.addEventListener('mouseenter', () => {
+        //         // 해당 요소에 대한 이벤트 처리
+        //         $('.main_container3_content_text_content').css('display', 'block');
+        //     });
+        // });
+
+        // img_enter
+        function img_enter() {
+            $('.main_container3_content_text_content').css('display', 'block');
+        }
+
+        function img_leave() {
+            $('.main_container3_content_text_content').css('display', 'none');
         }
     </script>
 
@@ -276,7 +298,7 @@
                     var bottom_of_element = $(this).offset().top + $(this).outerHeight();
                     var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-                    if (bottom_of_window > bottom_of_element - 500) {
+                    if (bottom_of_window > bottom_of_element - 100) {
                         $(this).animate({ 'opacity': '1' }, 800);
                     }
 

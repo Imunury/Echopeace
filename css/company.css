@@ -73,7 +73,7 @@ body {
 }
 
 .company_container_map {
-    height: 80rem;
+    height: 60rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,7 +81,7 @@ body {
 
 #ecopeace_map {
     width: 68%;
-    height: 40rem;
+    height: 50%;
 }
 
 .company_container_map h1 {

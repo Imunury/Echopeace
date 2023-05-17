@@ -167,11 +167,14 @@ body {
     opacity: 0.7;
     margin-left: 1rem;
     position: absolute;
+    margin-bottom: 1rem;
     font-weight: bold;
 }
 
-/* .main_container3_content_text_content{
-} */
+.main_container3_content_text_content{
+    display: none;
+    transition: display 0s ease-in-out 0.5s;
+}
 
 .main_go_company_button {
     width: 10rem;
