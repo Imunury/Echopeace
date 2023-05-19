@@ -14,7 +14,7 @@
 
         <div>
             <a href="http://127.0.0.1:5500/page/main.html"><img class="header_logo"
-                    src="/public/images/ecopeace_logo.png"></a>
+                    src="/public/images/ecopeace_logo_white.png"></a>
         </div>
 
         <div id="header_menu_id" class="header_menu">
@@ -39,9 +39,9 @@
         </div>
 
         <div class="header_language" onclick="language_dropdown()">
-            <img class="header_language_icon" src="/public/images/addition/icon-globe.png">
+            <img class="header_language_icon" src="/public/images/addition/glob4.png">
             <p>Language</p>
-            <img class="header_language_icon" src="/public/images/addition/icon-dropdown.png" style="height:0.4rem">
+            <img class="header_language_icon" src="/public/images/addition/whitearrow.png">
             <div id="language_drop" class="language_drop_off">
                 <p>한국어</p>
                 <p>English</p>
@@ -112,11 +112,11 @@
         function menu_hover(e) {
             var menu_id = e.target.id;
             // console.log(menu_id);
-            $('#' + menu_id).css('border-bottom', '1px solid red')
+            $('#' + menu_id).css('font-weight', 'bold')
         }
 
         function menu_hover_off() {
-            $('.header_menu_list_item').css('border-bottom', '3px solid transparent')
+            $('.header_menu_list_item').css('font-weight', '')
         }
 
         window.addEventListener('scroll', function () {

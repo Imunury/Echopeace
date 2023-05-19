@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div id="header"></div>
+    <div id="header1"></div>
 
     <div id="product">
         <h1>Product</h1>
@@ -28,7 +28,6 @@
                 <div>
                     <img class="product_list_img" src="/public/images/eco-wing.png">
                     <p>eco-wing</p>
-
                 </div>
                 <div>
                     <img class="product_list_img" src="/public/images/eco-bee-500.png">
@@ -49,7 +48,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $("#header").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
+            $("#header1").load("./header1.html");  // 원하는 파일 경로를 삽입하면 된다
 
         });
     </script>
@@ -65,7 +64,8 @@
                 infinite: true,
                 speed: 500,
                 fade: true,
-                cssEase: 'linear'
+                cssEase: 'linear',
+                centerMode: 'true',
             });
         });        
     </script>
