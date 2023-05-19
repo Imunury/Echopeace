@@ -32,9 +32,7 @@
                     <p>ECOPEACE는 친환경 수질 개선 솔루션을 제공하는 수질정화 전문 기업입니다.</p>
                 </div>
                 <div>
-                    <a src="http://127.0.0.1:5500/page/company.html">
-                        <button class="main_button">Find out more →</button>
-                    </a>
+                    <button class="main_button" onclick="gotoCompany()">Find out more →</button>
                 </div>
             </div>
 
@@ -47,28 +45,32 @@
                             <img id="img0" class="business_img_change" src="/public/images/addition/activity1.jpg">
                             <div>
                                 <p>ECOPEACE VISION</p>
-                                <p>adfasdfasdfasdf</p>
+                                <p>① Specific
+                                    ② Measurable
+                                    ③ Attainable
+                                    ④ Result-oriented
+                                    ⑤ Time bound</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <img id="img1" class="business_img" src="/public/images/addition/activity2.jpg">
                             <div>
-                                <p>ECOPEACE VISION</p>
-                                <p>adfasdfasdfasdf</p>
+                                <p>ECOPEACE MISSION</p>
+                                <p>Business for water Benefiting people and the planet</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <img id="img2" class="business_img" src="/public/images/addition/activity3.jpg">
                             <div>
                                 <p>ECOPEACE VISION</p>
-                                <p>adfasdfasdfasdf</p>
+                                <p>Sustainable Innovation Development</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <img id="img3" class="business_img" src="/public/assets/uploads/43106_43247_339.jpg">
                             <div>
-                                <p>ECOPEACE VISION</p>
-                                <p>adfasdfasdfasdf</p>
+                                <p>ECOPEACE STRATEGY</p>
+                                
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -175,7 +177,7 @@
     <!-- script -->
     <script>
         // 이동
-        function main_go_company() {
+        function gotoCompany() {
             window.location.href = 'http://127.0.0.1:5500/page/company.html'
         }
 
@@ -299,7 +301,7 @@
                     var bottom_of_window = $(window).scrollTop() + $(window).height();
 
                     if (bottom_of_window > bottom_of_element - 100) {
-                        $(this).animate({ 'opacity': '1' }, 800);
+                        $(this).animate({ 'opacity': '1' }, 400);
                     }
 
                 });

@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
 html {
     /* overflow: hidden; */
     display: block;
@@ -19,7 +34,7 @@ body {
 }
 
 .main_empty{
-    top: 4.0rem;
+    top: 5.4rem;
     background-color: transparent;
     width: 8rem;
     height: 100%;
@@ -46,25 +61,6 @@ body {
     animation: fadein 3s;
     -webkit-animation: fadein 2s;
 
-    /* padding-top: 0.01rem; */
-
-}
-
-
-
-@font-face {
-    font-family: 'LINESEEDKR-Bd';
-    src: url('../public/fonts/LINESeedKR-Bd.eot');
-}
-
-@font-face {
-    font-family: 'LINESEEDKR-Rg';
-    src: url('../public/fonts/LINESeedKR-Rg.eot');
-}
-
-@font-face {
-    font-family: 'LINESEEDKR-Th';
-    src: url('../public/fonts/LINESeedKR-Th.eot');
 }
 
 @keyframes fadein {
@@ -93,6 +89,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
+    opacity: 0;
     /* padding-top: 0.01rem; */
 }
 
@@ -124,12 +121,12 @@ body {
 .heading_title_left>div>p {
     font-size: 5rem;
     margin: 0rem;
-    font-family: 'LINESeedKR-Th';
+    font-family: 'LINESEEDKR-Bd';
 }
 
 .heading_title_left>div:nth-child(2)>p {
     font-size: 1.2rem;
-    /* font-family: 'LINESeedKR-Bd'; */
+    font-family: 'LINESeedKR-Rg';
 }
 
 .main_button {
@@ -140,6 +137,7 @@ body {
     padding-right: 2rem;
     background-color: transparent;
     font-size: 1.0rem;
+    cursor: pointer;
 }
 
 #section2 {
@@ -159,32 +157,7 @@ body {
     text-align: left;
     color: white;
     padding-left: 10rem;
-}
-
-.main_container2_title {
-    color: black;
-    font-size: 1.5rem;
-    padding: 7rem;
-}
-
-.main_container2_title>h1 {
-    margin: 0rem;
-}
-
-.main_container2_content {
-    color: black;
-    display: flex;
-    justify-content: center;
-}
-
-.main_container2_content_box {
-    padding: 3rem;
-    width: 16rem;
-}
-
-.main_container2_content_img {
-    width: 15rem;
-    max-height: 100%;
+    font-family: 'LINESEEDKR-Th';
 }
 
 /* section3 */
@@ -316,7 +289,7 @@ body {
 }
 
 .swiper-slide>div>p {
-    font-family: 'LINESEEDKR-Bd';
+    font-family: 'LINESEEDKR-Th';
     font-size: 1.0rem;
     padding: 0.5rem;
 }
