@@ -1,46 +1,55 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
 body {
     margin: 0rem;
     width: 100%;
     height: 100%;
 }
 
-.footer {
+#footer {
     width: 100%;
-    height: 17rem;
+    height: 25rem;
     background-color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    z-index: 100;
+    font-weight: bold;
+    color: white;
 }
 
-.footer_logo {
+#footer img {
     max-width: 100%;
-    height: 10rem;
+    height: 13rem;
 }
 
-.footer_box2 {
-    color: white;
+#footer div:nth-child(2),
+#footer div:nth-child(3) {
     font-weight: bold;
-    border-left: 1px solid white;font-weight: bold;
+    border-left: 1px solid white;
     padding-left: 2rem;
 }
 
-.footer_box2 p {
+#footer div p {
     margin: 1rem;
+    font-family: 'LINESEEDKR-Rg';
 }
 
-.footer_box3 {
-    color: white;
-    font-weight: bold;
-    border-left: 1px solid white;font-weight: bold;
-    padding-left: 2rem;
-}
 
-.foter_box3 p {
-    margin : 1rem;
-}
-
-.footer_address{
+.footer_box3 p:last-child {
     color: skyblue;
 }

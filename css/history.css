@@ -1,3 +1,26 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
+h1, h2, strong {
+    font-family: 'LINESEEDKR-Bd';
+}
+
+span {
+    font-family: 'LINESEEDKR-Rg';
+}
+
 html {
     margin: 0px;
     position: relative;
@@ -71,8 +94,6 @@ html {
 .history_head {
     font-size: 3rem;
 }
-
-.history_sub {}
 
 .history_content {
     display: flex;

@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
 body {
     margin: 0rem;
 }
@@ -44,27 +59,31 @@ body {
     }
 }
 
-.company_container_box h1 {
+h1 {
+    font-family: 'LINESEEDKR-Bd';
     font-size: 6rem;
     margin: 0rem;
 }
 
-.company_container_box strong {
+strong {
+    font-family: 'LINESEEDKR-Bd';
     font-size: 1.5rem;
 }
 
-.company_container_box_left {
-    width: 40rem;
-    /* background-color: brown; */
+p {
+    font-family: 'LINESEEDKR-Rg';
 }
 
-.company_container_box_right {
-    width: 40rem;
-    /* background-color: chocolate; */
+.company_container_box{
+    padding-top: 2rem;
 }
 
-.company_container_box_right p {
-    font-weight: bold;
+.company_container_box > div:first-child {
+    width: 35%;
+}
+
+.company_container_box > div:nth-child(2) {
+    width: 30%;
 }
 
 .company_container_box_right_emphasize {
@@ -77,6 +96,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.company_container_map h1{
+    padding-top: 5rem;
+    padding-bottom: 3rem;
 }
 
 #ecopeace_map {
@@ -104,7 +128,7 @@ body {
     padding-right: 5rem;
 }
 
-.company_container_map_text>div>div{
+.company_container_map_text>div>div {
     padding-left: 2rem;
 }
 

@@ -70,7 +70,7 @@
                             <img id="img3" class="business_img" src="/public/assets/uploads/43106_43247_339.jpg">
                             <div>
                                 <p>ECOPEACE STRATEGY</p>
-                                
+
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -88,9 +88,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
             <img src="../public/images//addition/section2_image.png">
         </div>
         <div>
-            <h2>친환경적이고, 깨끗하며 안전한 운영 방식을</h2>
+            <h2>친환경적이고 깨끗하며 안전한 운영 방식을</h2>
             <h2>찾기 위한 혁신은 처음부터 우리 사업의</h2>
             <h2>원동력이었습니다.</h2>
         </div>
@@ -111,68 +111,16 @@
     </div>
 
     <div id="section3" class="main_container">
-        <div class="main_container2_title">
-            <h1>What We Do?</h1>
-            <p>
-                에코피스는 다양한 경험과 첨단 기술을 기반으로
-                최적화된 고객 비즈니스를 실현합니다.
-            </p>
-        </div>
-        <div class="main_container3_content">
-            <div class="main_container3_content_box">
-                <img class="main_container3_content_img" src="/public/images/business_01.jpg">
-                <div class="main_container3_content_text">
-                    <h2 class="main_container3_content_text_head">
-                        수질관리 사업팀
-                    </h2>
-                    <p class="main_container3_content_text_content">
-                        전문 인력 및 장비 투입을 통해 수질의 모든 부분을 관리합니다.
-                    </p>
-                </div>
-            </div>
-            <div class="main_container3_content_box">
-                <img class="main_container3_content_img" src="/public/images/business_02.jpg">
-                <div class="main_container3_content_text">
-                    <h2 class="main_container3_content_text_head">
-                        녹조 제거 사업팀
-                    </h2>
-                    <p class="main_container3_content_text_content">
-                        녹조 제거 로봇을 투입하여 녹조를 제거하고 번식을 막아 쾌적한 담수 시설 상태를 유지합니다.
-                    </p>
-                </div>
-            </div>
-            <div class="main_container3_content_box">
-                <img class="main_container3_content_img" src="/public/images/business_03.jpg">
-                <div class="main_container3_content_text">
-                    <h2 class="main_container3_content_text_head">
-                        환경정화장비 연구 개발팀
-                    </h2>
-                    <p class="main_container3_content_text_content">
-                        환경 오염에 대응한 지속적인 연구로 환경 문제를 해결하는 기술을 개발합니다.
-                    </p>
-                </div>
-            </div>
-            <div class="main_container3_content_box">
-                <img class="main_container3_content_img" src="/public/images/business_04.jpg">
-                <div class="main_container3_content_text">
-                    <h2 class="main_container3_content_text_head">
-                        수질정화장치
-                    </h2>
-                    <h2 class="main_container3_content_text_head">
-                        설치 및 컨설팅팀
-                    </h2>
-                    <p class="main_container3_content_text_content">
-                        국내외 수질 오염으로 피해를 받고 있는 수요처에 정화 해결책을 제공합니다.
-                    </p>
-                </div>
-            </div>
+        <div>
+            <p>ECOPEACE </p>
+            <p>에코피스는 BIG DATA와 AI, ROBOT 기술 기반의 하이테크 벤처 기업입니다. 소중한 수자원의 오염을 막고 깨끗한 환경을 위해 오늘 그리고 내일로 나아갑니다.
+                우리의 삶에서 없어서는 안되는 물! 안전하고 풍족하게 사용할 수 있을 때 잘 관리하면 수자원의 미래는 밝습니다.</p>
         </div>
     </div>
 
-
-
-    <div id="footer" class="main_container"></div>
-
+    <div id="footer"></div>
+    <div class="main_container" style="height: 0rem;"></div>
+    <div class="main_container" style="height: 0rem;"></div>
 
     <!-- script -->
     <script>
@@ -190,14 +138,6 @@
         //     });
         // });
 
-        // img_enter
-        function img_enter() {
-            $('.main_container3_content_text_content').css('display', 'block');
-        }
-
-        function img_leave() {
-            $('.main_container3_content_text_content').css('display', 'none');
-        }
     </script>
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -230,7 +170,7 @@
 
         var lastPage = $(".main_container").length;
 
-        $html.animate({ scrollTop: 0 }, 10);
+        $html.animate({ scrollTop: 0 }, 1000);
 
         $(window).on("wheel", function (e) {
 
@@ -240,6 +180,7 @@
                 if (page == lastPage) return;
 
                 page++;
+
             } else if (e.originalEvent.deltaY < 0) {
                 if (page == 1) return;
 
@@ -256,6 +197,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script> -->
 
     <script>
 
