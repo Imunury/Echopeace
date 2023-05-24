@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/main.css" media="screen and (min-width: 768px)" rel="stylesheet">
+    <link href="/css/main-mobile.css" media="screen and (max-width:768px)" rel="stylesheet">
 </head>
 
 <body>
@@ -88,8 +89,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <!-- <div class="swiper-button-next"></div> -->
+                    <!-- <div class="swiper-button-prev"></div> -->
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
@@ -207,12 +208,15 @@
             loop: true,
             pagination: {
                 el: ".swiper-pagination",
-                dynamicBullets: true,
+                type: "progressbar",
             },
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            // }
         });
 
         // 첫 번째 swipe 크기 키우기

@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
-    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/header.css" media="screen and (min-width: 768px)" rel="stylesheet">
+    <link href="/css/header-mobile.css" media="screen and (max-width:768px)" rel="stylesheet">
+
 </head>
 
 <body>
@@ -55,9 +57,8 @@
         <ul class="header_dropdown_list">
             <li id="menu_1" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
                 onmouseleave="menu_hover_off()">
-                <a href="">Company</a>
-                <a href="">Company</a>
-                <a href="">Company</a>
+                <a href="http://127.0.0.1:5500/page/company.html">Company</a>
+                <a href="http://127.0.0.1:5500/page/esg.html">ESG</a>
             </li>
             <li id="menu_2" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
                 onmouseleave="menu_hover_off()">

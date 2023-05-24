@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
+html {
+    margin: 0;
+    background-color: rebeccapurple;
+}

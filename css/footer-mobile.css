@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
+body {
+    margin: 0rem;
+    width: 100%;
+    height: 100%;
+}
+
+#footer {
+    width: 100%;
+    height: 25rem;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 100;
+    font-weight: bold;
+    color: white;
+    font-size: 0.8rem;
+}
+
+#footer img {
+    max-width: 100%;
+    height: 6rem;
+}
+
+#footer div:first-child{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#footer div:nth-child(2),
+#footer div:nth-child(3) {
+    font-weight: bold;
+    border-left: 1px solid white;
+    padding-left: 1rem;
+}
+
+#footer div p {
+    margin: 1rem;
+    font-family: 'LINESEEDKR-Rg';
+}
+
+
+.footer_box3 p:last-child {
+    color: skyblue;
+}

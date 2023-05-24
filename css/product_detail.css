@@ -50,6 +50,7 @@ body>div {
     width: 6rem;
     max-height: 100%;
     margin: 1rem;
+    cursor: pointer;
 }
 
 .product_detail_work_img {
