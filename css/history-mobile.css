@@ -18,11 +18,11 @@ h2,
 h3,
 strong {
     font-family: 'LINESEEDKR-Bd';
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 h1{
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 strong{
@@ -69,7 +69,6 @@ html {
 
 .history_container_left {
     width: 45%;
-    padding-right: 10rem;
 }
 
 .history_container_left_box {
@@ -82,14 +81,14 @@ html {
 }
 
 #history_container_left_box_fix {
-    width: 40.1%;
+    width: 42%;
     top: 11rem;
     position: fixed;
 }
 
 .history_container_left_img {
     width: 100%;
-    height: 40rem;
+    height: 20rem;
     object-fit: cover;
     object-position: 50% 50%;
 }

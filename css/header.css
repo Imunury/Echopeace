@@ -112,8 +112,9 @@ body {
 #language_drop {
     display: none;
     position: fixed;
-    top: 3.5rem;
-    right: 12rem;
+    margin-top: 10rem;
+    /* top: 3.5rem; */
+    /* right: 12rem; */
     width: 8rem;
     text-align: center;
     background-color: white;
@@ -132,7 +133,7 @@ body {
     display: none;
     border-top: 1px solid gray;
     z-index: 1;
-    padding-left: 6rem;
+    padding-left: 11rem;
 }
 
 .header_dropdown_list {

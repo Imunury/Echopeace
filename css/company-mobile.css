@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
+body {
+    margin: 0rem;
+}
+
+#header {
+    position: relative;
+    z-index: 10;
+}
+
+#company {
+    position: relative;
+    z-index: 1;
+}
+
+.company_container {
+    padding-top: 8rem;
+    /* background-color: aqua; */
+}
+
+.company_container_box {
+    display: flex;
+    justify-content: center;
+    animation: fadein 3s;
+    -webkit-animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-family: 'LINESEEDKR-Bd';
+    font-size: 6rem;
+    margin: 0rem;
+}
+
+strong {
+    font-family: 'LINESEEDKR-Bd';
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'LINESEEDKR-Rg';
+}
+
+.company_container_box{
+    padding-top: 2rem;
+}
+
+.company_container_box > div:first-child {
+    width: 35%;
+}
+
+.company_container_box > div:nth-child(2) {
+    width: 30%;
+}
+
+.company_container_box_right_emphasize {
+    font-size: 2rem;
+    margin: 0rem;
+}
+
+.company_container_map {
+    height: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.company_container_map h1{
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+#ecopeace_map {
+    width: 68%;
+    height: 50%;
+}
+
+.company_container_map h1 {
+    font-size: 5rem;
+}
+
+.company_container_map_text {
+    padding-top: 2rem;
+    display: flex;
+}
+
+.company_container_map_text img {
+    max-width: 100%;
+    height: 6rem;
+}
+
+.company_container_map_text>div {
+    display: flex;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.company_container_map_text>div>div {
+    padding-left: 2rem;
+}
+
+/* kakao-map */
+.kakao_map_container {
+    position: absolute;
+    bottom: 4rem;
+    left: -11.2rem;
+    padding: 0rem;
+    height: 10rem;
+    width: 23rem;
+    background-color: white;
+    cursor: default;
+}
+
+.kakao_map_title {
+    margin: 0rem;
+    padding: 0.5rem;
+    background-color: #ccc;
+}
+
+.kakao_close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #888;
+    width: 17px;
+    height: 17px;
+    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+}
+
+.kakao_map_inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.kakao_map_img_container {
+    padding-top: 0.5rem;
+    height: 100%;
+}
+
+.kakao_map_img {
+    max-width: 100%;
+    height: 5rem;
+    border: solid 1px #ccc;
+}
+
+.kakao_map_text p {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+.kakao_map_text :nth-child(3) {
+    color: rgb(20, 20, 204);
+    cursor: pointer;
+}
