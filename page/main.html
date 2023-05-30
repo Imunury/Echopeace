@@ -14,7 +14,7 @@
     <div class="main_empty"></div>
     <div class="main_empty_dot"></div>
     <div id="header"></div>
-
+    <div id="uparrow"></div>
 
     <div id="section1" class="main_container1">
 
@@ -118,7 +118,7 @@
                 우리의 삶에서 없어서는 안되는 물! 안전하고 풍족하게 사용할 수 있을 때 잘 관리하면 수자원의 미래는 밝습니다.</p>
         </div>
     </div>
-
+    
     <div id="footer"></div>
     <div class="main_container" style="height: 0rem;"></div>
     <div class="main_container" style="height: 0rem;"></div>
@@ -129,16 +129,6 @@
         function gotoCompany() {
             window.location.href = 'http://127.0.0.1:5500/page/company.html'
         }
-
-        // const elements = document.querySelectorAll('.main_container3_content_box');
-
-        // elements.forEach(element => {
-        //     element.addEventListener('mouseenter', () => {
-        //         // 해당 요소에 대한 이벤트 처리
-        //         $('.main_container3_content_text_content').css('display', 'block');
-        //     });
-        // });
-
     </script>
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -159,6 +149,13 @@
         });
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#uparrow").load("./uparrow.html");  // 원하는 파일 경로를 삽입하면 된다
+        });
+    </script>
+
     <!-- scroll 시 section 이동 -->
     <script>
         window.addEventListener("wheel", function (e) {
@@ -174,6 +171,8 @@
         $html.animate({ scrollTop: 0 }, 1000);
 
         $(window).on("wheel", function (e) {
+
+            console.log(window.scrollY)
 
             if ($html.is(":animated")) return;
 

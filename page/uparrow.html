@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/uparrow.css" rel="stylesheet">
+</head>
+
+<body>
+    <button id="scroll-to-top">
+        <!-- asdasd -->
+        <img src="../public/images/addition/up-arrow.png" alt="up-arrow" style="width:3rem; height: 3rem;">
+    </button>
+
+    <script>
+        // top-btn
+        const scrollToTopBtn = document.getElementById("scroll-to-top");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.onclick = function () {
+            const scrollDuration = 500; // 이동 속도 (밀리초)
+            const scrollStep = -window.scrollY / (scrollDuration / 15); // 이동 단위 (px)
+            const scrollInterval = setInterval(function () {
+                if (window.scrollY != 0) {
+                    window.scrollBy(0, scrollStep);
+                }
+                else clearInterval(scrollInterval);
+            }, 15);
+        };
+    </script>
+</body>
+
+</html>

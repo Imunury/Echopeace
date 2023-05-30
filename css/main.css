@@ -33,6 +33,11 @@ body {
     position: absolute;
 }
 
+#uparrow{
+    z-index: 100;
+    position: absolute;
+}
+
 .main_empty {
     top: 5.4rem;
     background-color: transparent;
@@ -141,6 +146,7 @@ body {
     text-align: center;
     background-color: rgb(169, 201, 204);
     display: flex;
+    flex-wrap: center;
     justify-content: center;
     align-items: center;
 }
@@ -298,3 +304,4 @@ html:root {
     /* 화살표 사이즈 */
     /* --swiper-navigation-size : 10px;  */
 }
+

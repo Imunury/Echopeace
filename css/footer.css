@@ -27,7 +27,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    z-index: 100;
+    z-index: 50;
     font-weight: bold;
     color: white;
 }
@@ -53,3 +53,5 @@ body {
 .footer_box3 p:last-child {
     color: skyblue;
 }
+
+
