@@ -43,6 +43,11 @@ html {
     z-index: 10;
 }
 
+#uparrow{
+    z-index: 100;
+    position: absolute;
+}
+
 #history {
     position: relative;
     z-index: 1;

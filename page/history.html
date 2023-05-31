@@ -12,6 +12,7 @@
 
 <body>
     <div id="header"></div>
+    <div id="uparrow"></div>
 
     <div id="history">
 
@@ -259,13 +260,9 @@
                         </ul>
                     </div>
                 </div>
-
-
             </div>
         </div>
-
     </div>
-
 
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -277,9 +274,15 @@
         });
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#uparrow").load("./uparrow.html");  // 원하는 파일 경로를 삽입하면 된다
+        });
+    </script>
+
     <script>
         window.addEventListener('scroll', function () {
-            console.log(window.scrollY)
 
             if (window.scrollY < 630) {
                 $('.history_container_left_box').removeAttr('id');

@@ -140,6 +140,14 @@ body {
     background-color: transparent;
     font-size: 1.0rem;
     cursor: pointer;
+    transition-duration: 1s;
+
+}
+
+.main_button:hover{
+    background-color: white;
+    padding-right: 5rem;
+    transition-duration: 0.7s;
 }
 
 #section2 {
