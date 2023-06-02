@@ -56,7 +56,7 @@
                 <li id="menu_1" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
                     onmouseleave="menu_hover_off()">
                     <a href="http://127.0.0.1:5500/page/company.html">Company</a>
-                    <a href="http://127.0.0.1:5500/page/esg.html">ESG</a>
+                    <a href="http://127.0.0.1:5500/page/esg.html">ESG 경영</a>
                 </li>
                 <li id="menu_2" class="header_dropdown_list_item" onmouseover="menu_hover(event)"
                     onmouseleave="menu_hover_off()">
@@ -81,9 +81,6 @@
 
     </div>
 
-
-
-
     <script>
 
         function header_hover() {
@@ -96,6 +93,16 @@
             $('#header_menu_id').addClass('header_menu_hover');
 
         }
+
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                console.log(window.scrollY)
+                if(window.scrollY > 0){
+                    $('#header_body').removeClass();
+                    $('#header_body').addClass('header_move');
+                }
+            });
+        });
 
         function header_hover_off() {
 

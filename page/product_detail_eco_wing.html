@@ -24,10 +24,10 @@
                     <img class="product_img_main" src="/public/images/eco-wing.png">
                 </div>
                 <div class="product_detail_img_sub">
-                    <img src="/public/images/ecowing/10.jpg">
-                    <img src="/public/images/ecowing/9.jpg">
-                    <img src="/public/images/ecobee/5.jpg">
-                    <img src="/public/images/ecobee/6.jpg">
+                    <img src="/public/images/eco-wing.png" onclick="imgChange('/public/images/eco-wing.png')">
+                    <img src="/public/images/ecowing/10.jpg" onclick="imgChange('/public/images/ecowing/10.jpg')">
+                    <img src="/public/images/ecowing/9.jpg" onclick="imgChange('/public/images/ecowing/9.jpg')"> 
+                    <img src="/public/images/ecobee/5.jpg" onclick="imgChange('/public/images/ecobee/5.jpg')">
                 </div>
             </div>
         </div>
@@ -71,6 +71,12 @@
             $("#header").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
 
         });
+
+        // 클릭 시 이미지 바꾸기
+        function imgChange(image_src) {
+            console.log(image_src);
+            $('.product_img_main').attr("src", image_src);
+        }
     </script>
 
     <!-- 카카오 지도 ａｐｉ -->
