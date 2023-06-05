@@ -14,8 +14,7 @@
 }
 
 html {
-    /* background-image: url("../public/images/background/esg.png"); */
-    background-color: rebeccapurple;
+    background-image: url("../public/images/background/esg-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0rem;
@@ -60,7 +59,7 @@ html {
 }
 
 #esg>div:nth-child(3) {
-    padding-top: 1rem;
+    padding-top: 3rem;
     display: flex;
     justify-content: center;
 }
@@ -69,26 +68,46 @@ html {
     text-align: left;
 }
 
-#esg>div:nth-child(3)>div:nth-child(2),
-#esg>div:nth-child(3)>div:nth-child(3) {
-    padding-top: 1rem;
-    padding-left: 2rem;
+
+
+#esg>div:nth-child(3)>div:nth-child(2)>div:nth-child(1),
+#esg>div:nth-child(3)>div:nth-child(3)>div:nth-child(1) {
+    padding-bottom: 1rem;
 }
 
-#esg>div:nth-child(3)>div:nth-child(2) > div,
-#esg>div:nth-child(3)>div:nth-child(3) > div {
-    padding-bottom: 1rem;
+#esg>div:nth-child(3)>div:nth-child(2){
+    margin-left: 4rem;
+    margin-right: 4rem;
 }
 
 #esg h4 {
     font-family: 'LINESEEDKR-Bd';
     font-size: 3rem;
     color: white;
-    margin: 3rem;
+    margin: 0rem;
+    margin-bottom: 3rem;
 }
 
 #esg p {
     margin: 0rem;
-    font-family: 'LINESEEDKR-Rg';
     font-size: 1.3rem;
 }
+
+#esg>div:nth-child(3)>div:nth-child(2) p{
+    font-family: 'LINESEEDKR-Bd';
+}
+
+#esg>div:nth-child(3)>div:nth-child(3) p{
+    font-family: 'LINESEEDKR-Rg';
+}
+
+#esg>div:nth-child(3)>div>div>p:nth-child(2){
+    margin-bottom: 3rem;
+}
+
+#esg span{
+    background-color: rgb(2, 63, 82);
+    font-family: 'LINESEEDKR-Bd';
+    padding: 0.5rem;
+}
+
