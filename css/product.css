@@ -1,9 +1,30 @@
+@font-face {
+    font-family: 'LINESEEDKR-Bd';
+    src: url('../public/assets/fonts/LINESeedKR-Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Rg';
+    src: url('../public/assets/fonts/LINESeedKR-Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LINESEEDKR-Th';
+    src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
+}
+
 body {
     margin: 0rem
 }
 
 h1 {
     margin: 0rem;
+    font-family: 'LINESEEDKR-Bd';
+}
+
+p {
+    font-family: 'LINESEEDKR-Rg';
+
 }
 
 .product_main_title {
@@ -41,7 +62,7 @@ h1 {
     max-height: 100%;
 }
 
-.product_list_left{
+.product_list_left {
     padding-bottom: 2rem;
     border-bottom: 1px solid black;
 }
@@ -58,6 +79,7 @@ h1 {
 .product_list_right_sub {
     margin: 0rem;
     color: gray;
+    font-family: 'LINESEEDKR-Rg';
 }
 
 .product_list_right_title {
@@ -73,7 +95,8 @@ h1 {
     background-color: aqua;
     border-radius: 2rem;
     padding: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-family: 'LINESEEDKR-Rg';
 }
 
 .product_list_right_content_specification {

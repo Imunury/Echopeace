@@ -13,11 +13,18 @@
     src: url('../public/assets/fonts/LINESeedKR-Th.woff') format('woff');
 }
 
-html {
-    background-image: url("../public/images/background/esg-bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0rem;
+html,
+body {
+	background-color: #fff;
+	font-size: 15px;
+	color: #6b6b6b;
+	width: 100%;
+	padding: 0;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: 400;
+	width: 100%;
+	font-family: 'THE명품고딕L', sans-serif;
 }
 
 #esg {
@@ -25,6 +32,10 @@ html {
     height: 100%;
     text-align: center;
     color: white;
+    background-repeat: no-repeat;
+    background-image: url("../public/images/background/esg-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #esg>div:first-child {
